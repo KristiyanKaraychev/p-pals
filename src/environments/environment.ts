@@ -10,4 +10,5 @@ export const environment = {
         messagingSenderId: '272599448436',
         appId: '1:272599448436:web:c6fb01d4b4f0a11d140a21',
     },
+    apiURL: 'http://localhost:3000/api',
 };
