@@ -6,11 +6,12 @@ import { FirebaseService } from './services/firebase.service';
 import { ApiService } from './services/api.service';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { MainComponent } from './main/main.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, HeaderComponent, FooterComponent],
+    imports: [RouterOutlet, HeaderComponent, FooterComponent, MainComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 })
@@ -45,9 +46,11 @@ export class AppComponent implements OnInit {
     constructor(private apiService: ApiService) {}
 
     ngOnInit() {
-        this.apiService.getAllPosts('posts').subscribe((x) => {
-            console.log(x);
-        });
+        console.log('test app component');
+
+        // this.apiService.getAllPosts().subscribe((x) => {
+        //     console.log(x);
+        // });
 
         // this.firebaseService.post('posts', { text: 'test1' }).subscribe((x) => {
         //     debugger;

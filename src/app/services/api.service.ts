@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Post, Preview } from '../types/post';
+import { Post } from '../types/post';
+import { Preview } from '../types/preview';
 
 @Injectable({
     providedIn: 'root',
@@ -9,14 +10,14 @@ import { Post, Preview } from '../types/post';
 export class ApiService {
     constructor(private http: HttpClient) {}
 
-    getAllPosts(path: string) {
+    getAllPosts() {
         const URL = environment.apiURL;
-        return this.http.get<Post[]>(`${URL}/${path}`);
+        return this.http.get<Post[]>(`${URL}/posts`);
     }
 
-    getAllPreviews(path: string) {
+    getAllPreviews() {
         const URL = environment.apiURL;
-        return this.http.get<Preview[]>(`${URL}/${path}`);
+        return this.http.get<Preview[]>(`${URL}/themes`);
     }
 
     post(path: string, content: {}) {

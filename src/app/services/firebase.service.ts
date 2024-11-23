@@ -11,11 +11,9 @@ import { Post } from '../types/post';
 })
 export class FirebaseService {
     // constructor(private database: Database) {}
-
     // getData(path: string): Observable<any> {
     //     return new Observable((observer) => {
     //         const dbRef = ref(this.database, path);
-
     //         const unsubscribe = onValue(
     //             dbRef,
     //             (snapshot: DataSnapshot) => {
@@ -24,20 +22,7 @@ export class FirebaseService {
     //             },
     //             (error) => observer.error(error),
     //         );
-
     //         return () => unsubscribe();
     //     });
     // }
-
-    constructor(private http: HttpClient) {}
-
-    getAll(path: string) {
-        const URL = environment.apiURL;
-        return this.http.get<Post[]>(`${URL}/${path}`);
-    }
-
-    post(path: string, content: {}) {
-        const URL = environment.apiURL;
-        return this.http.post(`${URL}/${path}`, content);
-    }
 }
