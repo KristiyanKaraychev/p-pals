@@ -24,7 +24,8 @@ export class ApiService {
         return this.http.get<Post>(`${this.URL}/themes/${id}`);
     }
 
-    createPreview(path: string, content: {}) {
-        return this.http.post(`${this.URL}/${path}`, content);
+    createPost(postName: string, postText: string) {
+        const body = { postName, postText };
+        return this.http.post<Post>(`${this.URL}/themes`, body);
     }
 }

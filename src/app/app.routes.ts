@@ -6,12 +6,14 @@ import { LoginComponent } from './user/login/login.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'profile', component: ProfileComponent },
     {
         path: 'posts',
         children: [

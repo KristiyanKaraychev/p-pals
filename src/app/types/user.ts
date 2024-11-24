@@ -10,3 +10,17 @@ export interface User {
     updatedAt: string;
     __v: number;
 }
+
+export interface authenticationUser {
+    firstName: string;
+    email: string;
+    phoneNumber: string;
+    password: string;
+    id: string;
+}
+
+export interface ProfileDetails {
+    username: string;
+    email: string;
+    tel: string;
+}
