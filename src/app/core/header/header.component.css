@@ -10,3 +10,26 @@
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
 }
+
+.nav-buttons ul {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-buttons ul li {
+    width: 150px;
+}
+
+.nav-buttons ul li a {
+    width: 100%;
+}
+
+.enlarge-on-hover {
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.enlarge-on-hover:hover {
+    transform: scale(1.15);
+}

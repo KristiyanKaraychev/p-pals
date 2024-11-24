@@ -7,10 +7,23 @@ import { AddPostComponent } from './posts/add-post/add-post.component';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { UserService } from './user/user.service';
+import { inject } from '@angular/core';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    {
+        path: 'home',
+        redirectTo: () => {
+            if (inject(UserService).isLoggedIn) {
+                return '/posts';
+            } else {
+                return '/homeRedirected';
+            }
+        },
+    },
+    { path: 'homeRedirected', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     { path: 'profile', component: ProfileComponent },
@@ -21,7 +34,11 @@ export const routes: Routes = [
             { path: ':postId', component: PostDetailsComponent },
         ],
     },
-    { path: 'add-post', component: AddPostComponent },
+    {
+        path: 'add-post',
+        component: AddPostComponent,
+        canActivate: [AuthenticationGuard],
+    },
     { path: '404', component: ErrorComponent },
     { path: '**', redirectTo: '/404' },
 ];

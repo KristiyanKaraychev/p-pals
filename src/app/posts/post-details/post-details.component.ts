@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Post } from '../../types/post';
+import { UserService } from '../../user/user.service';
 
 @Component({
     selector: 'app-post-details',
@@ -16,7 +17,12 @@ export class PostDetailsComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private api: ApiService,
+        private userService: UserService,
     ) {}
+
+    get isLoggedIn(): boolean {
+        return this.userService.isLoggedIn;
+    }
 
     ngOnInit(): void {
         const id = this.route.snapshot.params['postId'];
