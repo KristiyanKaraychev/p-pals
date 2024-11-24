@@ -43,6 +43,8 @@ export class AppComponent implements OnInit {
     //     error: (err: any) => console.error('Error fetching data:', err),
     // });
 
+    title: string = 'p-pals';
+
     constructor(private apiService: ApiService) {}
 
     ngOnInit() {

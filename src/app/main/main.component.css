@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Stack the elements vertically */
+    min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+}
+
+/* Make the main content area grow and take available space */
+main {
+    flex-grow: 1; /* Make the main content area grow to fill remaining space */
+    padding: 20px; /* Optional padding for the content */
+}
