@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { Post } from '../types/post';
+import { ApiService } from '../../services/api.service';
+
+import { RouterLink } from '@angular/router';
+import { Post } from '../../types/post';
 
 @Component({
-    selector: 'app-posts-list',
+    selector: 'app-previews-list',
     standalone: true,
-    imports: [],
+    imports: [RouterLink],
     templateUrl: './posts-list.component.html',
     styleUrl: './posts-list.component.css',
 })
@@ -16,7 +18,9 @@ export class PostsListComponent implements OnInit {
 
     ngOnInit(): void {
         this.apiService.getAllPosts().subscribe((posts) => {
-            console.log({ posts });
+            console.log('Posts:');
+            console.log(posts);
+
             this.posts = posts;
         });
     }

@@ -1,0 +1,5 @@
+<p>post-details works!</p>
+<h1>{{ post.themeName }}</h1>
+@for (post of post.posts; track $index) {
+    <div>{{ post.text }}</div>
+}

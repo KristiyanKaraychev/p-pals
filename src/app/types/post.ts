@@ -1,21 +1,13 @@
-import { Preview } from './preview';
+import { Comment } from './comment';
 import { User } from './user';
 
 export interface Post {
-    likes: string[];
+    subscribers: string[];
+    posts: Comment[];
     _id: string;
-    text: string;
+    themeName: string;
     userId: User;
-    themeId: Preview;
     created_at: string;
     updatedAt: string;
     __v: number;
-
-    // title: string;
-    // description: string;
-    // author: string;
-    // date: string;
-    // image: string;
-    // likes: string;
-    // comments: {};
 }

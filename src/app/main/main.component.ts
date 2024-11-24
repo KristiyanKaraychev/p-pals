@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { PreviewsListComponent } from '../previews-list/previews-list.component';
-import { PostsListComponent } from '../posts-list/posts-list.component';
+import { PostsListComponent } from '../posts/posts-list/posts-list.component';
+import { CommentsListComponent } from '../comments-list/comments-list.component';
 
 @Component({
     selector: 'app-main',
     standalone: true,
-    imports: [PreviewsListComponent, PostsListComponent],
+    imports: [PostsListComponent, CommentsListComponent],
     templateUrl: './main.component.html',
     styleUrl: './main.component.css',
 })

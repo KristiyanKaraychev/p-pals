@@ -2,16 +2,16 @@
 <header>
     <div class="mini-navbar-wrap">
         <div class="logo-wrap">
-            <img src="../views/images/logo.png" />
+            <a routerLink="/home"><img src="../views/images/logo.png" /></a>
             <p class="logo">SoftUni Forum</p>
         </div>
         <div class="mini-navbar">
             <ul>
                 <li>
-                    <a href="#">Login</a>
+                    <a routerLink="/login">Login</a>
                 </li>
                 <li>
-                    <a href="#">Register</a>
+                    <a routerLink="/register">Register</a>
                 </li>
             </ul>
         </div>
@@ -19,13 +19,13 @@
     <nav>
         <ul>
             <li>
-                <a href="#">Home</a>
+                <a routerLink="/home">Home</a>
             </li>
             <li>
-                <a href="#">Themes</a>
+                <a routerLink="/posts">Posts</a>
             </li>
             <li>
-                <a href="#">New Theme</a>
+                <a routerLink="/add-post">Add Post</a>
             </li>
         </ul>
     </nav>

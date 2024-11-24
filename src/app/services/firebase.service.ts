@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { get } from 'firebase/database';
 import { HttpClient } from '@angular/common/http';
-import { Post } from '../types/post';
+import { Post } from '../types/comment';
 
 @Injectable({
     providedIn: 'root',

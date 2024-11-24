@@ -3,13 +3,13 @@
     <div class="aside">
         <h2 class="title">Recent posts</h2>
         <div>
-            @for (post of posts; track $index) {
+            @for (comment of comments; track $index) {
                 <div class="aside-theme">
                     <a href="#">
-                        <h3>{{ post.themeId.themeName }}</h3>
-                        <p>{{ post.userId.username }}</p>
+                        <h3>{{ comment.themeId.themeName }}</h3>
+                        <p>{{ comment.userId.username }}</p>
                         <p>
-                            <span>{{ post.created_at }}</span>
+                            <span>{{ comment.created_at }}</span>
                         </p>
                     </a>
                 </div>
