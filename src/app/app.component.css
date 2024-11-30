@@ -1,7 +1,7 @@
 .content-wrap {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Full screen height */
+    height: 100%;
 }
 
 .main-wrap {

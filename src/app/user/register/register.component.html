@@ -1,6 +1,6 @@
 <p>register works!</p>
 
-<div class="register-container">
+<!-- <div class="register-container">
     <div class="register-header">
         <h1>Create Account</h1>
         <p>Please fill in your information</p>
@@ -31,5 +31,113 @@
     </form>
     <div class="login-link">
         Already have an account? <a routerLink="/login">Login here</a>
+    </div>
+</div> -->
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Register</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <!-- [formGroup]="registerForm" (ngSubmit)="onRegister()" -->
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label"
+                                >Username</label
+                            >
+                            <input
+                                type="text"
+                                id="username"
+                                class="form-control"
+                                formControlName="username"
+                                placeholder="Enter your username"
+                                required
+                            />
+                            <div class="text-danger">
+                                <!-- *ngIf="registerForm.controls.username?.invalid
+                                && registerForm.controls.username?.touched"
+                                Username is required. -->
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                formControlName="email"
+                                placeholder="Enter your email"
+                                required
+                            />
+                            <div class="text-danger">
+                                <!-- *ngIf="registerForm.controls.email?.invalid &&
+                                registerForm.controls.email?.touched" A valid
+                                email is required. -->
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                formControlName="password"
+                                placeholder="Enter your password"
+                                required
+                            />
+                            <div class="text-danger">
+                                <!-- *ngIf="registerForm.controls.password?.invalid
+                                && registerForm.controls.password?.touched"
+                                Password is required. -->
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label"
+                                >Confirm Password</label
+                            >
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                class="form-control"
+                                formControlName="confirmPassword"
+                                placeholder="Confirm your password"
+                                required
+                            />
+                            <div class="text-danger">
+                                <!-- *ngIf="registerForm.controls.confirmPassword?.invalid
+                                &&
+                                registerForm.controls.confirmPassword?.touched"
+                                Please confirm your password. -->
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <!-- [disabled]="registerForm.invalid" Register -->
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>
+                        Already have an account?
+                        <a routerLink="/login" class="text-primary">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
