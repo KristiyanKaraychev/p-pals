@@ -23,4 +23,9 @@ export class AddPostComponent {
             console.log(data);
         });
     }
+
+    onCancel(form: NgForm) {
+        form.resetForm();
+        console.log('Form has been reset.');
+    }
 }

@@ -1,52 +1,3 @@
-<!-- <div class="container">
-    <div class="new-theme-border">
-        <div class="header-background">
-            <span>New Theme</span>
-        </div>
-        <form>
-            <div class="new-theme-title">
-                <label for="themeName">Title <span class="red">*</span></label>
-                <input
-                    type="text"
-                    name="themeName"
-                    id="themeName"
-                    #inputPostName
-                />
-                <!-- <p class="error">Theme name is required.</p>
-          <p class="error">Theme name must be at least 5 characters long.</p> -->
-<!-- </div>
-            <div class="new-theme-content">
-                <label for="postText">Post <span class="red">*</span></label>
-                <textarea
-                    type="text"
-                    name="postText"
-                    id="postText"
-                    rows="8"
-                    class="height"
-                    #inputPostText
-                ></textarea> -->
-<!-- <p class="error">The field with your post is required.</p>
-          <p class="error">Post must be at least 10 characters long.</p> -->
-<!-- </div>
-            <div class="new-theme-buttons">
-                <button class="cancel">Cancel</button>
-                <button
-                    class="public"
-                    (click)="
-                        addPost(
-                            $event,
-                            inputPostName.value,
-                            inputPostText.value
-                        )
-                    "
-                >
-                    Post
-                </button>
-            </div>
-        </form>
-    </div>
-</div> -->
-
 <div class="container mt-5">
     <h2>Create a New Post</h2>
     <form
@@ -123,11 +74,17 @@
         </div>
 
         <div class="d-flex gap-4">
-            <button type="button" class="btn btn-secondary">Cancel</button>
-            <!-- (click)="onCancel(postForm)" -->
+            <button
+                type="button"
+                class="btn btn-secondary enlarge-on-hover"
+                (click)="onCancel(form)"
+            >
+                Cancel
+            </button>
+
             <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-primary enlarge-on-hover"
                 [disabled]="form.invalid"
             >
                 Create Post
