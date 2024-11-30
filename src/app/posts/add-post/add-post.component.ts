@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-add-post',
     standalone: true,
-    imports: [],
+    imports: [FormsModule],
     templateUrl: './add-post.component.html',
     styleUrl: './add-post.component.css',
 })
 export class AddPostComponent {
     constructor(private apiService: ApiService) {}
 
-    addPost(event: Event, postName: string, postText: string) {
-        event.preventDefault();
-        console.log(postName, postText);
-        this.apiService.createPost(postName, postText).subscribe((data) => {
+    addPost(form: NgForm) {
+        if (form.invalid) {
+            return;
+        }
+
+        const { postTitle, postText } = form.value;
+
+        this.apiService.createPost(postTitle, postText).subscribe((data) => {
             console.log(data);
         });
     }

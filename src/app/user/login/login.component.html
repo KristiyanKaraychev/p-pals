@@ -20,18 +20,19 @@
                                 #inputEmail="ngModel"
                                 appEmailVal
                             />
-                            <div class="text-danger">
-                                @if (inputEmail?.touched) {
+
+                            @if (inputEmail?.touched) {
+                                <div class="text-danger">
                                     @if (inputEmail?.errors?.["required"]) {
-                                        Email is required!
+                                        <p>Email is required!</p>
                                     }
                                     @if (
                                         inputEmail?.errors?.["emailValidator"]
                                     ) {
-                                        Email is not valid!
+                                        <p>Email is not valid!</p>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
 
                         <div class="mb-3">
@@ -49,17 +50,20 @@
                                 #inputPassword="ngModel"
                                 minlength="6"
                             />
-                            <div class="text-danger">
-                                @if (inputPassword?.touched) {
+
+                            @if (inputPassword?.touched) {
+                                <div class="text-danger">
                                     @if (inputPassword?.errors?.["required"]) {
-                                        Password is required!
+                                        <p>Password is required!</p>
                                     }
                                     @if (inputPassword?.errors?.["minlength"]) {
-                                        Password must be at least 6 characters
-                                        long!
+                                        <p>
+                                            Password must be at least 6
+                                            characters long!
+                                        </p>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
 
                         <div class="d-grid">

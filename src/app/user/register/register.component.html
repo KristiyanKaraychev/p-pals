@@ -55,13 +55,14 @@
                                 ngModel
                                 #inputUsername="ngModel"
                             />
-                            <div class="text-danger">
-                                @if (inputUsername?.touched) {
+
+                            @if (inputUsername?.touched) {
+                                <div class="text-danger">
                                     @if (inputUsername?.errors?.["required"]) {
-                                        Username is required!
+                                        <p>Username is required!</p>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
 
                         <div class="mb-3">
@@ -78,18 +79,18 @@
                                 appEmailVal
                             />
 
-                            <div class="text-danger">
-                                @if (inputEmail?.touched) {
+                            @if (inputEmail?.touched) {
+                                <div class="text-danger">
                                     @if (inputEmail?.errors?.["required"]) {
-                                        Email is required!
+                                        <p>Email is required!</p>
                                     }
                                     @if (
                                         inputEmail?.errors?.["emailValidator"]
                                     ) {
-                                        Please enter a valid email!
+                                        <p>Please enter a valid email!</p>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
 
                         <div class="mb-3">
@@ -107,17 +108,20 @@
                                 #inputPassword="ngModel"
                                 minlength="6"
                             />
-                            <div class="text-danger">
-                                @if (inputPassword?.touched) {
+
+                            @if (inputPassword?.touched) {
+                                <div class="text-danger">
                                     @if (inputPassword?.errors?.["required"]) {
-                                        Password is required!
+                                        <p>Password is required!</p>
                                     }
                                     @if (inputPassword?.errors?.["minlength"]) {
-                                        Password must be at least 6 characters
-                                        long!
+                                        <p>
+                                            Password must be at least 6
+                                            characters long!
+                                        </p>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
 
                         <div class="mb-3">
@@ -136,23 +140,23 @@
                                 [appPasswords]="inputPassword.value"
                             />
 
-                            <div class="text-danger">
-                                @if (inputConfirmPassword?.touched) {
+                            @if (inputConfirmPassword?.touched) {
+                                <div class="text-danger">
                                     @if (
                                         inputConfirmPassword?.errors?.[
                                             "required"
                                         ]
                                     ) {
-                                        Please confirm your password!
+                                        <p>Please confirm your password!</p>
                                     } @else if (
                                         inputConfirmPassword?.errors?.[
                                             "matchPasswordsValidator"
                                         ]
                                     ) {
-                                        The passwords don't match!
+                                        <p>The passwords don't match!</p>
                                     }
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
 
                         <div class="d-grid">
