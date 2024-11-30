@@ -1,5 +1,3 @@
-<p>register works!</p>
-
 <!-- <div class="register-container">
     <div class="register-header">
         <h1>Create Account</h1>
@@ -36,97 +34,134 @@
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-10">
             <div class="card">
                 <div class="card-header bg-primary text-white text-center">
-                    <h3>Register</h3>
+                    <h2>Register</h2>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <!-- [formGroup]="registerForm" (ngSubmit)="onRegister()" -->
-                        <!-- Username -->
+                    <form #form="ngForm" (ngSubmit)="register(form)">
                         <div class="mb-3">
                             <label for="username" class="form-label"
                                 >Username</label
                             >
                             <input
                                 type="text"
+                                name="username"
                                 id="username"
                                 class="form-control"
-                                formControlName="username"
                                 placeholder="Enter your username"
                                 required
+                                ngModel
+                                #inputUsername="ngModel"
                             />
                             <div class="text-danger">
-                                <!-- *ngIf="registerForm.controls.username?.invalid
-                                && registerForm.controls.username?.touched"
-                                Username is required. -->
+                                @if (inputUsername?.touched) {
+                                    @if (inputUsername?.errors?.["required"]) {
+                                        Username is required!
+                                    }
+                                }
                             </div>
                         </div>
 
-                        <!-- Email -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input
                                 type="email"
+                                name="email"
                                 id="email"
                                 class="form-control"
-                                formControlName="email"
                                 placeholder="Enter your email"
                                 required
+                                ngModel
+                                #inputEmail="ngModel"
+                                appEmailVal
                             />
+
                             <div class="text-danger">
-                                <!-- *ngIf="registerForm.controls.email?.invalid &&
-                                registerForm.controls.email?.touched" A valid
-                                email is required. -->
+                                @if (inputEmail?.touched) {
+                                    @if (inputEmail?.errors?.["required"]) {
+                                        Email is required!
+                                    }
+                                    @if (
+                                        inputEmail?.errors?.["emailValidator"]
+                                    ) {
+                                        Please enter a valid email!
+                                    }
+                                }
                             </div>
                         </div>
 
-                        <!-- Password -->
                         <div class="mb-3">
                             <label for="password" class="form-label"
                                 >Password</label
                             >
                             <input
                                 type="password"
+                                name="password"
                                 id="password"
                                 class="form-control"
-                                formControlName="password"
                                 placeholder="Enter your password"
                                 required
+                                ngModel
+                                #inputPassword="ngModel"
+                                minlength="6"
                             />
                             <div class="text-danger">
-                                <!-- *ngIf="registerForm.controls.password?.invalid
-                                && registerForm.controls.password?.touched"
-                                Password is required. -->
+                                @if (inputPassword?.touched) {
+                                    @if (inputPassword?.errors?.["required"]) {
+                                        Password is required!
+                                    }
+                                    @if (inputPassword?.errors?.["minlength"]) {
+                                        Password must be at least 6 characters
+                                        long!
+                                    }
+                                }
                             </div>
                         </div>
 
-                        <!-- Confirm Password -->
                         <div class="mb-3">
                             <label for="confirmPassword" class="form-label"
                                 >Confirm Password</label
                             >
                             <input
                                 type="password"
+                                name="confirmPassword"
                                 id="confirmPassword"
                                 class="form-control"
-                                formControlName="confirmPassword"
                                 placeholder="Confirm your password"
                                 required
+                                ngModel
+                                #inputConfirmPassword="ngModel"
+                                [appPasswords]="inputPassword.value"
                             />
+
                             <div class="text-danger">
-                                <!-- *ngIf="registerForm.controls.confirmPassword?.invalid
-                                &&
-                                registerForm.controls.confirmPassword?.touched"
-                                Please confirm your password. -->
+                                @if (inputConfirmPassword?.touched) {
+                                    @if (
+                                        inputConfirmPassword?.errors?.[
+                                            "required"
+                                        ]
+                                    ) {
+                                        Please confirm your password!
+                                    } @else if (
+                                        inputConfirmPassword?.errors?.[
+                                            "matchPasswordsValidator"
+                                        ]
+                                    ) {
+                                        The passwords don't match!
+                                    }
+                                }
                             </div>
                         </div>
 
-                        <!-- Submit Button -->
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">
-                                <!-- [disabled]="registerForm.invalid" Register -->
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                [disabled]="form.invalid"
+                            >
+                                Register
                             </button>
                         </div>
                     </form>

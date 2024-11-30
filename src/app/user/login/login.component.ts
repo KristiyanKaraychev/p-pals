@@ -12,17 +12,12 @@ import { EmailDirective } from '../../directives/email.directive';
     styleUrl: './login.component.css',
 })
 export class LoginComponent {
-    temp = [];
-
     constructor(
         private userService: UserService,
         private router: Router,
     ) {}
 
-    // login(event: Event, emailValue: string, passwordValue: string) {
     login(form: NgForm) {
-        // event.preventDefault();
-
         if (form.invalid) {
             console.log('Invalid login form.');
             console.log(form);

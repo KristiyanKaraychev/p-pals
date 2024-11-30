@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-sm-10" class="col-md-6">
+        <div class="col-md-6 col-sm-10">
             <div class="card">
                 <div class="card-header bg-primary text-white text-center">
                     <h2>Login</h2>
@@ -20,19 +20,18 @@
                                 #inputEmail="ngModel"
                                 appEmailVal
                             />
-
-                            @if (inputEmail?.touched) {
-                                @if (inputEmail?.errors?.["required"]) {
-                                    <div class="text-danger">
+                            <div class="text-danger">
+                                @if (inputEmail?.touched) {
+                                    @if (inputEmail?.errors?.["required"]) {
                                         Email is required!
-                                    </div>
-                                }
-                                @if (inputEmail?.errors?.["emailValidator"]) {
-                                    <div class="text-danger">
+                                    }
+                                    @if (
+                                        inputEmail?.errors?.["emailValidator"]
+                                    ) {
                                         Email is not valid!
-                                    </div>
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -50,24 +49,25 @@
                                 #inputPassword="ngModel"
                                 minlength="6"
                             />
-
-                            @if (inputPassword?.touched) {
-                                @if (inputPassword?.errors?.["required"]) {
-                                    <div class="text-danger">
+                            <div class="text-danger">
+                                @if (inputPassword?.touched) {
+                                    @if (inputPassword?.errors?.["required"]) {
                                         Password is required!
-                                    </div>
-                                }
-                                @if (inputPassword?.errors?.["minlength"]) {
-                                    <div class="text-danger">
+                                    }
+                                    @if (inputPassword?.errors?.["minlength"]) {
                                         Password must be at least 6 characters
                                         long!
-                                    </div>
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                [disabled]="form.invalid"
+                            >
                                 Login
                             </button>
                         </div>

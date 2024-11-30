@@ -1,28 +1,30 @@
-import { Directive } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 import {
     AbstractControl,
     NG_VALIDATORS,
     ValidationErrors,
     Validator,
 } from '@angular/forms';
-import { emailValidator } from '../utils/email.validator';
+import { matchPassValidator } from '../utils/matchPass.validator';
 
 @Directive({
-    selector: '[appEmailVal]',
+    selector: '[appPasswords]',
     standalone: true,
     providers: [
         {
             provide: NG_VALIDATORS,
             multi: true,
-            useExisting: EmailDirective,
+            useExisting: matchPasswordsDirective,
         },
     ],
 })
-export class EmailDirective implements Validator {
+export class matchPasswordsDirective implements Validator {
+    @Input() appPasswords: string = '';
+
     constructor() {}
 
     validate(control: AbstractControl): ValidationErrors | null {
-        const validatorFn = emailValidator();
+        const validatorFn = matchPassValidator(this.appPasswords);
         return validatorFn(control);
     }
 }

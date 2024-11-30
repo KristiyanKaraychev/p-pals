@@ -21,6 +21,17 @@ export class UserService {
         }
     }
 
+    register() {
+        this.user = {
+            firstName: 'kris',
+            email: 'kris@abv.bg',
+            phoneNumber: '111-111-111',
+            password: '123456',
+            id: '111',
+        };
+        localStorage.setItem(this.userKey, JSON.stringify(this.user));
+    }
+
     login() {
         this.user = {
             firstName: 'kris',
