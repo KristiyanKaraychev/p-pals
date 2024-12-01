@@ -1,4 +1,4 @@
-<main>
+<!-- <main>
     <div class="theme-title">
         @for (post of posts; track $index) {
             <a [routerLink]="post._id">
@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="subscribers">
                                     <!-- <button class="subscribe">Subscribe</button> -->
-                                    <p>
+<!-- <p>
                                         Subscribers:
                                         <span>{{
                                             post.subscribers.length || 0
@@ -36,5 +36,34 @@
                 </div>
             </a>
         }
+    </div>
+</main> -->
+
+<main>
+    <div class="container py-4">
+        <h2 class="text-center mb-4">Animal Posts</h2>
+
+        <!-- Grid of Posts -->
+        <div class="row g-4">
+            <!-- Each Post -->
+            @for (post of posts; track $index) {
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a [routerLink]="[post._id]" class="text-decoration-none">
+                        <div class="card shadow-sm h-100">
+                            <img
+                                [src]="post.imgURL || './placeholder.png'"
+                                alt="Animal Image"
+                                class="card-img-top"
+                            />
+                            <div class="card-body text-center p-2">
+                                <p class="card-text fw-bold text-primary">
+                                    {{ post.themeName || "Untitled Post" }}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
     </div>
 </main>
