@@ -1,51 +1,8 @@
-<!-- <main>
-    <div class="theme-title">
-        @for (post of posts; track $index) {
-            <a [routerLink]="post._id">
-                <div class="theme-container">
-                    <div class="theme-name-wrapper">
-                        <div class="theme-name">
-                            <h2>{{ post.themeName }}</h2>
-                            <div class="columns">
-                                <div>
-                                    <p>
-                                        Date:
-                                        <time>{{ post.created_at }}</time>
-                                    </p>
-                                    <div class="nick-name">
-                                        <p>
-                                            Username:
-                                            <span>{{
-                                                post.userId.username
-                                            }}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="subscribers">
-                                    <!-- <button class="subscribe">Subscribe</button> -->
-<!-- <p>
-                                        Subscribers:
-                                        <span>{{
-                                            post.subscribers.length || 0
-                                        }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        }
-    </div>
-</main> -->
-
 <main>
     <div class="container py-4">
         <h2 class="text-center mb-4">Animal Posts</h2>
 
-        <!-- Grid of Posts -->
         <div class="row g-4">
-            <!-- Each Post -->
             @for (post of posts; track $index) {
                 <div class="col-6 col-md-4 col-lg-3">
                     <a [routerLink]="[post._id]" class="text-decoration-none">
@@ -57,7 +14,7 @@
                             />
                             <div class="card-body text-center p-2">
                                 <p class="card-text fw-bold text-primary">
-                                    {{ post.themeName || "Untitled Post" }}
+                                    {{ post.themeName | ellipsis: 25 }}
                                 </p>
                             </div>
                         </div>

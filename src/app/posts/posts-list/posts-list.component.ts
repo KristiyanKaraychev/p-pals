@@ -3,11 +3,12 @@ import { ApiService } from '../../services/api.service';
 
 import { RouterLink } from '@angular/router';
 import { Post } from '../../types/post';
+import { EllipsisPipe } from '../../shared/pipes/ellipsis.pipe';
 
 @Component({
     selector: 'app-previews-list',
     standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink, EllipsisPipe],
     templateUrl: './posts-list.component.html',
     styleUrl: './posts-list.component.css',
 })

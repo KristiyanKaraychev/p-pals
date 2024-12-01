@@ -7,11 +7,13 @@ import { HomeComponent } from '../../home/home.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthenticationUser, User } from '../../types/user';
 import { Comment } from '../../types/comment';
+import { ShortTimePipe } from '../../shared/pipes/short-time.pipe';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-post-details',
     standalone: true,
-    imports: [HomeComponent, FormsModule],
+    imports: [HomeComponent, FormsModule, ShortTimePipe, DatePipe],
     templateUrl: './post-details.component.html',
     styleUrl: './post-details.component.css',
 })
@@ -32,6 +34,10 @@ export class PostDetailsComponent implements OnInit {
         return this.userService.isLoggedIn;
     }
 
+    get getUserId(): string | undefined {
+        return this.userService.userId;
+    }
+
     get username(): string {
         return this.userService.user?.username || '';
     }
@@ -46,9 +52,9 @@ export class PostDetailsComponent implements OnInit {
         this.api.getSinglePost(id).subscribe((post) => {
             this.post = post;
         });
-        this.userService.getProfile().subscribe((user) => {
-            this.user = user;
-        });
+        // this.userService.getProfile().subscribe((user) => {
+        //     this.user = user;
+        // });
         this.isEditMode = false;
     }
 

@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { UserService } from './user/user.service';
 import { inject } from '@angular/core';
+import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -39,6 +40,7 @@ export const routes: Routes = [
         component: AddPostComponent,
         canActivate: [AuthenticationGuard],
     },
+    { path: 'error', component: ErrorMsgComponent },
     { path: '404', component: ErrorComponent },
     { path: '**', redirectTo: '/404' },
 ];

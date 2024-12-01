@@ -13,3 +13,13 @@
     overflow: visible;
     overflow-wrap: anywhere;
 }
+
+.title-container {
+    width: 60%;
+    text-align: center;
+}
+
+.title-container h2 {
+    overflow: visible;
+    overflow-wrap: anywhere;
+}
