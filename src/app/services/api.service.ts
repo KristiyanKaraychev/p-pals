@@ -21,8 +21,8 @@ export class ApiService {
         return this.http.get<Post>(`/api/themes/${id}`);
     }
 
-    createPost(postName: string, postText: string) {
-        const body = { postName, postText };
+    createPost(themeName: string, postText: string, imgURL: string) {
+        const body = { themeName, postText, imgURL };
         return this.http.post<Post>(`/api/themes`, body);
     }
 }

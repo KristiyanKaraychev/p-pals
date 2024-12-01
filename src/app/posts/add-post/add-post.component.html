@@ -11,7 +11,7 @@
             <input
                 type="text"
                 id="title"
-                name="title"
+                name="postTitle"
                 class="form-control"
                 required
                 ngModel
@@ -36,7 +36,7 @@
             <label for="description" class="form-label">Description</label>
             <textarea
                 id="description"
-                name="description"
+                name="postText"
                 class="form-control"
                 rows="4"
                 required
@@ -60,17 +60,29 @@
 
         <!-- TODO -->
         <div class="mb-3">
-            <label for="image" class="form-label">Upload Image</label>
+            <label for="imageUrl" class="form-label">Image URL</label>
             <input
-                type="file"
-                id="image"
-                name="image"
+                type="url"
+                id="imageUrl"
+                name="postImgUrl"
                 class="form-control"
+                ngModel
+                #inputImgUrl="ngModel"
                 required
+                placeholder="Paste the image URL here"
+                imgURLVal
             />
-            <!-- (change)="onImageSelected($event)" -->
-            <div class="text-danger">Please upload an image.</div>
-            <!-- *ngIf="!selectedImage && imageTouched" -->
+
+            @if (inputImgUrl?.touched) {
+                <div class="text-danger">
+                    @if (inputImgUrl?.errors?.["required"]) {
+                        <p>Please upload an image.</p>
+                    }
+                    @if (inputImgUrl?.errors?.["imgURLValidator"]) {
+                        <p>Image URL is not valid!</p>
+                    }
+                </div>
+            }
         </div>
 
         <div class="d-flex gap-4">
