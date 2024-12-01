@@ -14,8 +14,8 @@ export class HomeComponent {
         return this.userService.isLoggedIn;
     }
 
-    get firstName(): string {
-        return this.userService.user?.firstName || '';
+    get username(): string {
+        return this.userService.user?.username || '';
     }
 
     constructor(private userService: UserService) {}

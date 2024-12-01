@@ -25,7 +25,14 @@ export class RegisterComponent {
             return;
         }
 
-        this.userService.register();
-        this.router.navigate(['/home']);
+        const { username, email, password, rePassword } = form.value;
+
+        debugger;
+
+        this.userService
+            .register(username, email, password, rePassword)
+            .subscribe((data) => {
+                this.router.navigate(['/posts']);
+            });
     }
 }

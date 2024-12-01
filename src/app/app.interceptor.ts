@@ -16,19 +16,22 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
         });
     }
 
-    // const errorMsgService = inject(ErrorMsgService);
-    const router = inject(Router);
+    // // const errorMsgService = inject(ErrorMsgService);
+    // const router = inject(Router);
 
-    return next(req).pipe(
-        catchError((err) => {
-            if (err.status === 401) {
-                router.navigate(['/login']);
-            } else {
-                // errorMsgService.setError(err);
-                router.navigate(['/error']);
-            }
+    // return next(req).pipe(
+    //     catchError((err) => {
+    //         if (err.status === 401) {
+    //             router.navigate(['/login']);
+    //         } else {
+    //             // errorMsgService.setError(err);
+    //             router.navigate(['/error']);
+    //         }
 
-            return [err];
-        }),
-    );
+    //         return [err];
+    //     }),
+    // );
+
+    console.log(req);
+    return next(req);
 };

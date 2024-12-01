@@ -14,8 +14,8 @@ export const appConfig: ApplicationConfig = {
     providers: [
         // provideFirebaseApp(() => initializeApp(environment.firebase)),
         // provideDatabase(() => getDatabase()),
-        provideHttpClient(),
-        // provideHttpClient(withInterceptors([appInterceptor])),
+        // provideHttpClient(),
+        provideHttpClient(withInterceptors([appInterceptor])),
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(routes),
     ],

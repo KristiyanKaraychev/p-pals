@@ -11,10 +11,10 @@ export interface User {
     __v: number;
 }
 
-export interface authenticationUser {
-    firstName: string;
+export interface AuthenticationUser {
+    username: string;
     email: string;
-    phoneNumber: string;
+    // phoneNumber: string;
     password: string;
     id: string;
 }
