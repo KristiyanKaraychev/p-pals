@@ -6,6 +6,7 @@ import { UserService } from '../../user/user.service';
 import { HomeComponent } from '../../home/home.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthenticationUser, User } from '../../types/user';
+import { Comment } from '../../types/comment';
 
 @Component({
     selector: 'app-post-details',
@@ -16,7 +17,9 @@ import { AuthenticationUser, User } from '../../types/user';
 })
 export class PostDetailsComponent implements OnInit {
     post = {} as Post;
+    comment = {} as Comment;
     user = {} as AuthenticationUser;
+    isEditMode: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -33,13 +36,20 @@ export class PostDetailsComponent implements OnInit {
         return this.userService.user?.username || '';
     }
 
+    toggleEditMode() {
+        this.isEditMode = !this.isEditMode;
+    }
+
     ngOnInit(): void {
         const id = this.route.snapshot.params['postId'];
         console.log('Post ID: ' + id);
-        this.loadPage(id);
+        this.api.getSinglePost(id).subscribe((post) => {
+            this.post = post;
+        });
         this.userService.getProfile().subscribe((user) => {
             this.user = user;
         });
+        this.isEditMode = false;
     }
 
     createComment(form: NgForm) {
@@ -48,19 +58,49 @@ export class PostDetailsComponent implements OnInit {
         this.api.createComment(postText, this.post._id).subscribe((data) => {
             console.log(data);
             form.reset();
-            this.loadPage(this.post._id);
+            // this.loadPage(this.post._id);
+            this.ngOnInit();
         });
     }
 
-    deleteComment(commendId: string) {
-        this.api.deleteComment(this.post._id, commendId).subscribe(() => {
-            this.loadPage(this.post._id);
+    editComment(commentId: string, form: NgForm) {
+        const { postText } = form.value;
+        this.api
+            .editComment(this.post._id, commentId, postText)
+            .subscribe((data) => {
+                console.log(data);
+                this.ngOnInit();
+            });
+    }
+
+    deleteComment(commentId: string) {
+        this.api.deleteComment(this.post._id, commentId).subscribe(() => {
+            // this.loadPage(this.post._id);
+            // debugger;
+            // this.router.navigate([`/posts/${this.post._id}`]);
+            this.ngOnInit();
         });
     }
 
-    loadPage(id: string) {
-        this.api.getSinglePost(id).subscribe((post) => {
-            this.post = post;
+    likeComment(commentId: string) {
+        this.api.likeComment(commentId).subscribe(() => {
+            this.ngOnInit();
         });
     }
+
+    onEdit(commentId: string) {
+        this.comment._id = commentId;
+        this.toggleEditMode();
+    }
+
+    onCancel() {
+        console.log('Form has been reset.');
+        this.ngOnInit();
+    }
+
+    // loadPage(id: string) {
+    //     this.api.getSinglePost(id).subscribe((post) => {
+    //         this.post = post;
+    //     });
+    // }
 }

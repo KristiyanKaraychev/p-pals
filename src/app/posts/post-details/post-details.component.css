@@ -4,3 +4,12 @@
     object-fit: cover;
     border: 2px solid white;
 }
+
+.edit-form {
+    width: 100%;
+}
+
+.post-content {
+    overflow: visible;
+    overflow-wrap: anywhere;
+}

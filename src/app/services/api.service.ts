@@ -31,23 +31,34 @@ export class ApiService {
         return this.http.post<Comment>(`/api/themes/${postId}`, body);
     }
 
-    // CRUD operations
-    // update -> http.put
-    updateTheme(themeId: string, themeName: string, postText: string) {
-        const body = { themeName, postText };
-        return this.http.put<Post>(`/api/themes/${themeId}`, body);
-    }
-
-    updatePost(themeId: string, postId: string) {
-        const body = {};
-        return this.http.put<Post>(
+    editComment(themeId: string, postId: string, postText: string) {
+        const body = { postText };
+        return this.http.put<Comment>(
             `/api/themes/${themeId}/posts/${postId}`,
             body,
         );
     }
 
-    // delete -> http.delete theme ID
     deleteComment(themeId: string, postId: string) {
         return this.http.delete(`/api/themes/${themeId}/posts/${postId}`);
     }
+
+    likeComment(postId: string) {
+        return this.http.put<Comment>(`/api/likes/${postId}`, {});
+    }
+
+    // // CRUD operations
+    // // update -> http.put
+    // updateTheme(themeId: string, themeName: string, postText: string) {
+    //     const body = { themeName, postText };
+    //     return this.http.put<Post>(`/api/themes/${themeId}`, body);
+    // }
+
+    // updatePost(themeId: string, postId: string) {
+    //     const body = {};
+    //     return this.http.put<Post>(
+    //         `/api/themes/${themeId}/posts/${postId}`,
+    //         body,
+    //     );
+    // }
 }
