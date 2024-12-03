@@ -6,11 +6,11 @@ import { LoginComponent } from './user/login/login.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
-import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { UserService } from './user/user.service';
 import { inject } from '@angular/core';
 import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },

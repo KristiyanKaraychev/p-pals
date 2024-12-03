@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { AuthenticationUser } from '../types/user';
+import { AuthenticationUser, ProfileDetails } from '../types/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, retry, Subscription, tap } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -40,14 +40,6 @@ export class UserService implements OnDestroy {
         password: string,
         rePassword: string,
     ) {
-        // this.user = {
-        //     firstName: 'kris',
-        //     email: 'kris@abv.bg',
-        //     // phoneNumber: '111-111-111',
-        //     password: '123456',
-        //     id: '111',
-        // };
-
         return this.http
             .post<AuthenticationUser>('/api/register', {
                 username,
@@ -61,14 +53,6 @@ export class UserService implements OnDestroy {
     }
 
     login(email: string, password: string) {
-        // this.user = {
-        //     firstName: 'kris',
-        //     email: 'kris@abv.bg',
-        //     // phoneNumber: '111-111-111',
-        //     password: '123456',
-        //     id: '111',
-        // };
-
         return this.http
             .post<AuthenticationUser>('/api/login', {
                 email,
@@ -91,6 +75,20 @@ export class UserService implements OnDestroy {
         return this.http
             .get<AuthenticationUser>('/api/users/profile')
             .pipe(tap((user) => this.user$$.next(user)));
+    }
+
+    saveProfile(username: string, email: string, tel?: string) {
+        return this.http
+            .put<AuthenticationUser>(`/api/users/profile`, {
+                username,
+                email,
+                tel,
+            })
+            .pipe(
+                tap((user) => {
+                    this.user$$.next(user);
+                }),
+            );
     }
 
     ngOnDestroy(): void {

@@ -14,7 +14,7 @@ export interface User {
 export interface AuthenticationUser {
     username: string;
     email: string;
-    // phoneNumber: string;
+    tel?: string;
     password: string;
     _id: string;
 }
@@ -22,5 +22,10 @@ export interface AuthenticationUser {
 export interface ProfileDetails {
     username: string;
     email: string;
-    tel: string;
+    tel?: string;
+    description?: string;
+    location?: string;
+    created_at?: string;
+    themes?: string[];
+    posts?: string[];
 }
