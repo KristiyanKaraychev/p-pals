@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Post } from '../../types/post';
 import { UserService } from '../../user/user.service';
-import { HomeComponent } from '../../home/home.component';
 import { FormsModule, NgForm } from '@angular/forms';
-import { AuthenticationUser, User } from '../../types/user';
 import { Comment } from '../../types/comment';
 import { ShortTimePipe } from '../../shared/pipes/short-time.pipe';
 import { DatePipe } from '@angular/common';
@@ -13,21 +11,19 @@ import { DatePipe } from '@angular/common';
 @Component({
     selector: 'app-post-details',
     standalone: true,
-    imports: [HomeComponent, FormsModule, ShortTimePipe, DatePipe],
+    imports: [FormsModule, ShortTimePipe, DatePipe],
     templateUrl: './post-details.component.html',
     styleUrl: './post-details.component.css',
 })
 export class PostDetailsComponent implements OnInit {
     post = {} as Post;
     comment = {} as Comment;
-    user = {} as AuthenticationUser;
     isEditMode: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
         private api: ApiService,
         private userService: UserService,
-        private router: Router,
     ) {}
 
     get isLoggedIn(): boolean {
@@ -52,9 +48,7 @@ export class PostDetailsComponent implements OnInit {
         this.api.getSinglePost(id).subscribe((post) => {
             this.post = post;
         });
-        // this.userService.getProfile().subscribe((user) => {
-        //     this.user = user;
-        // });
+
         this.isEditMode = false;
     }
 
@@ -64,7 +58,6 @@ export class PostDetailsComponent implements OnInit {
         this.api.createComment(postText, this.post._id).subscribe((data) => {
             console.log(data);
             form.reset();
-            // this.loadPage(this.post._id);
             this.ngOnInit();
         });
     }
@@ -81,9 +74,6 @@ export class PostDetailsComponent implements OnInit {
 
     deleteComment(commentId: string) {
         this.api.deleteComment(this.post._id, commentId).subscribe(() => {
-            // this.loadPage(this.post._id);
-            // debugger;
-            // this.router.navigate([`/posts/${this.post._id}`]);
             this.ngOnInit();
         });
     }
@@ -103,10 +93,4 @@ export class PostDetailsComponent implements OnInit {
         console.log('Form has been reset.');
         this.ngOnInit();
     }
-
-    // loadPage(id: string) {
-    //     this.api.getSinglePost(id).subscribe((post) => {
-    //         this.post = post;
-    //     });
-    // }
 }

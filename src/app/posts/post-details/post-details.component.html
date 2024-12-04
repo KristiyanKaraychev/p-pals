@@ -28,14 +28,19 @@
                                 <span class="fw-bold">{{
                                     post.userId.username
                                 }}</span>
-                                commented on
-                                <time>{{ post.created_at }}</time>
+                                commented
+                                <time class="fw-bold">{{
+                                    post.created_at | shortTime
+                                }}</time>
                             </p>
                         </div>
                         <div class="card-body d-flex">
                             <div class="userdetails me-3">
                                 <img
-                                    [src]="'./profile.png'"
+                                    [src]="
+                                        post.userId.avatarImgURL ||
+                                        './default-profile-image.jpg'
+                                    "
                                     alt="avatar"
                                     class="rounded-circle"
                                     width="50"
@@ -129,7 +134,10 @@
                         <div class="card-body d-flex">
                             <div class="userdetails me-3">
                                 <img
-                                    [src]="'./profile.png'"
+                                    [src]="
+                                        post.userId.avatarImgURL ||
+                                        './default-profile-image.jpg'
+                                    "
                                     alt="avatar"
                                     class="rounded-circle"
                                     width="50"

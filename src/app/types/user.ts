@@ -9,6 +9,7 @@ export interface User {
     created_at: string;
     updatedAt: string;
     __v: number;
+    avatarImgURL?: string;
 }
 
 export interface AuthenticationUser {
@@ -28,4 +29,5 @@ export interface ProfileDetails {
     created_at?: string;
     themes?: string[];
     posts?: string[];
+    avatarImgURL?: string;
 }

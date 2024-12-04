@@ -77,12 +77,22 @@ export class UserService implements OnDestroy {
             .pipe(tap((user) => this.user$$.next(user)));
     }
 
-    saveProfile(username: string, email: string, tel?: string) {
+    saveProfile(
+        username: string,
+        email: string,
+        tel?: string,
+        description?: string,
+        location?: string,
+        avatarImgURL?: string,
+    ) {
         return this.http
             .put<AuthenticationUser>(`/api/users/profile`, {
                 username,
                 email,
                 tel,
+                description,
+                location,
+                avatarImgURL,
             })
             .pipe(
                 tap((user) => {

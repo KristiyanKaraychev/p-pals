@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 import { AuthenticationUser, ProfileDetails, User } from '../../types/user';
 import { DatePipe } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { ImgURLDirective } from '../../directives/imgURL.directive';
+import { EmailDirective } from '../../directives/email.directive';
+import { TelephoneNumberDirective } from '../../directives/telephoneNumber.directive';
 
 @Component({
     selector: 'app-profile',
     standalone: true,
-    imports: [FormsModule, DatePipe, ImgURLDirective],
+    imports: [
+        FormsModule,
+        DatePipe,
+        ImgURLDirective,
+        EmailDirective,
+        TelephoneNumberDirective,
+    ],
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit {
     isEditMode: boolean = false;
     likes: number = 0;
-    // user: User = {};
 
     profileDetails: ProfileDetails = {
         username: '',
@@ -24,6 +31,7 @@ export class ProfileComponent implements OnInit {
         tel: '',
         description: '',
         location: '',
+        avatarImgURL: '',
         created_at: '',
         themes: [],
         posts: [],
@@ -39,23 +47,40 @@ export class ProfileComponent implements OnInit {
             this.profileDetails = user;
             this.getTotalLikes();
         });
+        this.isEditMode = false;
     }
 
     toggleEditMode(): void {
         this.isEditMode = !this.isEditMode;
     }
 
-    saveProfile(): void {
-        // if (this.form.invalid) {
-        //   return
-        // }
+    saveProfile(form: NgForm): void {
+        if (form.invalid) {
+            return;
+        }
 
-        // this.userService.saveProfile(username,tel).subscribe(() => {
-        //   this.toggleEditMode()
-        // })
+        let { username, email, tel, description, location, avatarImgURL } =
+            form.value;
 
-        console.log('profile saved');
-        this.toggleEditMode();
+        if (username == '') username = this.profileDetails.username;
+        if (email == '') email = this.profileDetails.email;
+        if (tel == '') tel = this.profileDetails.tel;
+        if (description == '') description = this.profileDetails.description;
+        if (location == '') location = this.profileDetails.location;
+        if (avatarImgURL == '') avatarImgURL = this.profileDetails.avatarImgURL;
+
+        this.userService
+            .saveProfile(
+                username,
+                email,
+                tel,
+                description,
+                location,
+                avatarImgURL,
+            )
+            .subscribe(() => {
+                this.ngOnInit();
+            });
     }
 
     onCancel(event: Event) {
@@ -64,6 +89,7 @@ export class ProfileComponent implements OnInit {
     }
 
     getTotalLikes() {
+        this.likes = 0;
         this.http.getAllComments().subscribe((data) => {
             data.filter(
                 (post) => post.userId._id === this.userService.user?._id,
