@@ -7,6 +7,7 @@ import { ApiService } from '../../services/api.service';
 import { ImgURLDirective } from '../../directives/imgURL.directive';
 import { EmailDirective } from '../../directives/email.directive';
 import { TelephoneNumberDirective } from '../../directives/telephoneNumber.directive';
+import { filter, map } from 'rxjs';
 
 @Component({
     selector: 'app-profile',
@@ -23,7 +24,8 @@ import { TelephoneNumberDirective } from '../../directives/telephoneNumber.direc
 })
 export class ProfileComponent implements OnInit {
     isEditMode: boolean = false;
-    likes: number = 0;
+    numLikes: number = 0;
+    numPosts: number = 0;
 
     profileDetails: ProfileDetails = {
         username: '',
@@ -46,6 +48,7 @@ export class ProfileComponent implements OnInit {
         this.userService.getProfile().subscribe((user) => {
             this.profileDetails = user;
             this.getTotalLikes();
+            this.getPersonalPosts();
         });
         this.isEditMode = false;
     }
@@ -89,13 +92,28 @@ export class ProfileComponent implements OnInit {
     }
 
     getTotalLikes() {
-        this.likes = 0;
+        this.numLikes = 0;
         this.http.getAllComments().subscribe((data) => {
             data.filter(
                 (post) => post.userId._id === this.userService.user?._id,
             ).forEach((comment) => {
-                this.likes += comment.likes.length;
+                this.numLikes += comment.likes.length;
             });
         });
+    }
+
+    getPersonalPosts() {
+        this.http
+            .getAllPosts()
+            .pipe(
+                map((posts) =>
+                    posts.filter(
+                        (post) => post.userId._id == this.userService.user?._id,
+                    ),
+                ),
+            )
+            .subscribe((ownPosts) => {
+                this.numPosts = ownPosts.length;
+            });
     }
 }

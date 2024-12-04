@@ -20,6 +20,17 @@
         </div>
 
         <div class="comments">
+            @if (post.posts.length === 0) {
+                @if (isLoggedIn) {
+                    <h2 class="text-muted fw-bold text-center">
+                        Be the first to comment!
+                    </h2>
+                } @else {
+                    <h2 class="text-muted fw-bold text-center">
+                        No comments yet!
+                    </h2>
+                }
+            }
             @for (post of post.posts; track $index) {
                 @if (isEditMode && post._id === this.comment._id) {
                     <div class="comment card shadow-sm mb-3">

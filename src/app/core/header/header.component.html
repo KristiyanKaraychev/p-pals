@@ -63,13 +63,24 @@
                         >Posts</a
                     >
                 </li>
+
                 <li class="nav-item">
                     <a
                         class="btn btn-light mx-1 enlarge-on-hover"
-                        routerLink="/add-post"
-                        >New Post</a
+                        routerLink="/my-posts"
+                        >My Posts</a
                     >
                 </li>
+
+                @if (isLoggedIn) {
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-light mx-1 enlarge-on-hover"
+                            routerLink="/add-post"
+                            >New Post</a
+                        >
+                    </li>
+                }
             </ul>
         </div>
     </nav>

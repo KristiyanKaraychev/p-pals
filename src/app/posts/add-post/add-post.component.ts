@@ -40,5 +40,6 @@ export class AddPostComponent {
     onCancel(form: NgForm) {
         form.resetForm();
         console.log('Form has been reset.');
+        this.router.navigate(['/posts']);
     }
 }

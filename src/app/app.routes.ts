@@ -11,6 +11,7 @@ import { UserService } from './user/user.service';
 import { inject } from '@angular/core';
 import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { MyPostsComponent } from './posts/my-posts/my-posts.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -40,6 +41,15 @@ export const routes: Routes = [
         component: AddPostComponent,
         canActivate: [AuthenticationGuard],
     },
+    {
+        path: 'my-posts',
+        children: [
+            { path: '', component: MyPostsComponent },
+            { path: ':postId', redirectTo: '/posts/:postId' },
+        ],
+        canActivate: [AuthenticationGuard],
+    },
+
     { path: 'error', component: ErrorMsgComponent },
     { path: '404', component: ErrorComponent },
     { path: '**', redirectTo: '/404' },
