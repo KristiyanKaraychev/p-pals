@@ -19,6 +19,7 @@ export class PostDetailsComponent implements OnInit {
     post = {} as Post;
     comment = {} as Comment;
     isEditMode: boolean = false;
+    numOfComments: number = 0;
 
     constructor(
         private route: ActivatedRoute,
@@ -47,6 +48,7 @@ export class PostDetailsComponent implements OnInit {
         console.log('Post ID: ' + id);
         this.api.getSinglePost(id).subscribe((post) => {
             this.post = post;
+            this.numOfComments = this.post.posts.length;
         });
 
         this.isEditMode = false;

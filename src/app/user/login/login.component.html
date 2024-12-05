@@ -1,3 +1,11 @@
+@if (hasError) {
+    <p class="notification error-message">
+        @if (errorMsg()) {
+            {{ errorMsg() }}
+        }
+    </p>
+}
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-sm-10">

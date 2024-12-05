@@ -1,43 +1,40 @@
-<div class="container">
-    <div class="container">
-        <div class="welcome">
-            <h3>
-                Welcome
-                @if (isLoggedIn) {
-                    {{ username }}
-                }
-                !
-            </h3>
-            <p>
-                SoftUni forum is a place, where you can post your questions,
-                comment, and discuss problems, which you have in your
-                programming language or in your study in SoftUni.
-            </p>
-
-            <div class="logged">
-                <ul>
+<div class="d-flex align-items-center justify-content-center h-100">
+    <div class="container text-center py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 mb-3">Welcome to P-Pals!</h1>
+                <p class="lead text-muted mb-4">
+                    Discover, share, and connect with fellow pet lovers around
+                    the world.
+                </p>
+                <img
+                    src="assets/welcome-banner.jpg"
+                    alt="Welcome Banner"
+                    class="img-fluid rounded shadow-sm mb-4"
+                />
+                <div class="d-flex justify-content-center gap-3">
                     @if (!isLoggedIn) {
-                        <li>
-                            <a routerLink="/login">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Login
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/register">
-                                <i class="fas fa-user-plus"></i>
-                                Register
-                            </a>
-                        </li>
+                        <a
+                            routerLink="/login"
+                            class="btn btn-outline-secondary btn-lg px-4 py-2 rounded-pill hover-scale enlarge-on-hover"
+                        >
+                            Login
+                        </a>
+                        <a
+                            routerLink="/register"
+                            class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale enlarge-on-hover"
+                        >
+                            Register
+                        </a>
                     } @else {
-                        <li>
-                            <a routerLink="/posts">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Get Started
-                            </a>
-                        </li>
+                        <a
+                            routerLink="/posts"
+                            class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale"
+                        >
+                            Get Started
+                        </a>
                     }
-                </ul>
+                </div>
             </div>
         </div>
     </div>

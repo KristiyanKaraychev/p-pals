@@ -1,0 +1,37 @@
+.error-container {
+    width: 100%;
+    max-width: 90%;
+    height: 100%;
+    max-height: 80%;
+    padding: 40px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8d7da;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h1 {
+    font-size: 10rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.error-container h2 {
+    font-size: 3rem;
+    color: #495057;
+}
+
+.error-container p {
+    font-size: 1.25rem;
+    color: #6c757d;
+}
+
+.error-container a.text-primary {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.error-container a.text-primary:hover {
+    text-decoration: underline;
+}

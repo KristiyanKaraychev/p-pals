@@ -1,7 +1,6 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { catchError } from 'rxjs';
 import { inject } from '@angular/core';
-// import { ErrorMsgService } from './core/error-msg/error-msg.service';
 import { Router } from '@angular/router';
 import { environment } from '../environments/environment';
 import { ErrorMsgService } from './core/error-msg/error-msg.service';
@@ -22,11 +21,12 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
 
     return next(req).pipe(
         catchError((err) => {
+            errorMsgService.setError(err);
             if (err.status === 401) {
-                // errorMsgService.setError(err);
                 router.navigate(['/login']);
+            } else if (err.status == 409) {
+                router.navigate(['/register']);
             } else {
-                errorMsgService.setError(err);
                 router.navigate(['/error']);
             }
 

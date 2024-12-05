@@ -7,7 +7,9 @@
                 <a [routerLink]="[post._id]" class="text-decoration-none">
                     <div class="card shadow-sm h-100">
                         <img
-                            [src]="post.imgURL || './placeholder.png'"
+                            [src]="
+                                post.imgURL || '/images/default-pet-image.jpg'
+                            "
                             alt="Animal Image"
                             class="card-img-top"
                         />

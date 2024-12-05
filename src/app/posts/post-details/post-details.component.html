@@ -10,7 +10,7 @@
                 </div>
                 <div class="pet-image ms-3">
                     <img
-                        [src]="post.imgURL || './default-pet-image.jpg'"
+                        [src]="post.imgURL || '/images/default-pet-image.jpg'"
                         alt="Pet image"
                         class="img-fluid rounded-circle"
                         width="300"
@@ -20,7 +20,7 @@
         </div>
 
         <div class="comments">
-            @if (post.posts.length === 0) {
+            @if (numOfComments === 0) {
                 @if (isLoggedIn) {
                     <h2 class="text-muted fw-bold text-center">
                         Be the first to comment!
@@ -50,14 +50,13 @@
                                 <img
                                     [src]="
                                         post.userId.avatarImgURL ||
-                                        './default-profile-image.jpg'
+                                        '/images/default-profile-image.jpg'
                                     "
                                     alt="avatar"
                                     class="rounded-circle"
                                     width="50"
                                     height="50"
                                 />
-                                <!-- post.userId.avatar ||  -->
                             </div>
                             <form
                                 #form="ngForm"
@@ -147,14 +146,13 @@
                                 <img
                                     [src]="
                                         post.userId.avatarImgURL ||
-                                        './default-profile-image.jpg'
+                                        '/images/default-profile-image.jpg'
                                     "
                                     alt="avatar"
                                     class="rounded-circle"
                                     width="50"
                                     height="50"
                                 />
-                                <!-- post.userId.avatar ||  -->
                             </div>
                             <div class="post-content flex-grow-1">
                                 <p class="mb-0">{{ post.text }}</p>
@@ -186,7 +184,6 @@
                                             class="btn text-warning"
                                             (click)="onEdit(post._id)"
                                         >
-                                            <!-- (click)="editComment(post._id)" -->
                                             Edit
                                             <span class="fas fa-edit"></span>
                                         </button>
