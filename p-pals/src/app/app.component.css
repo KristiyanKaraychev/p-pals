@@ -1,0 +1,9 @@
+.content-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-wrap {
+    flex: 1;
+}

@@ -1,0 +1,99 @@
+@if (hasError) {
+    <p class="notification error-message">
+        @if (errorMsg()) {
+            {{ errorMsg() }}
+        }
+    </p>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-10">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Login</h2>
+                </div>
+                <div class="card-body">
+                    <form class="login" #form="ngForm" (ngSubmit)="login(form)">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                required
+                                ngModel
+                                #inputEmail="ngModel"
+                                appEmailVal
+                            />
+
+                            @if (inputEmail?.touched) {
+                                <div class="text-danger">
+                                    @if (inputEmail?.errors?.["required"]) {
+                                        <p>Email is required!</p>
+                                    }
+                                    @if (
+                                        inputEmail?.errors?.["emailValidator"]
+                                    ) {
+                                        <p>Email is not valid!</p>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                class="form-control"
+                                placeholder="Enter your password"
+                                required
+                                ngModel
+                                #inputPassword="ngModel"
+                                minlength="6"
+                            />
+
+                            @if (inputPassword?.touched) {
+                                <div class="text-danger">
+                                    @if (inputPassword?.errors?.["required"]) {
+                                        <p>Password is required!</p>
+                                    }
+                                    @if (inputPassword?.errors?.["minlength"]) {
+                                        <p>
+                                            Password must be at least 6
+                                            characters long!
+                                        </p>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="d-grid">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                [disabled]="form.invalid"
+                            >
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>
+                        Don't have an account?
+                        <a routerLink="/register" class="text-primary"
+                            >Register</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

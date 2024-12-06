@@ -1,0 +1,156 @@
+@if (hasError) {
+    <p class="notification error-message">
+        @if (errorMsg()) {
+            {{ errorMsg() }}
+        }
+    </p>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-10">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Register</h2>
+                </div>
+                <div class="card-body">
+                    <form #form="ngForm" (ngSubmit)="register(form)">
+                        <div class="mb-3">
+                            <label for="username" class="form-label"
+                                >Username</label
+                            >
+                            <input
+                                type="text"
+                                name="username"
+                                id="username"
+                                class="form-control"
+                                placeholder="Enter your username"
+                                required
+                                ngModel
+                                #inputUsername="ngModel"
+                            />
+
+                            @if (inputUsername?.touched) {
+                                <div class="text-danger">
+                                    @if (inputUsername?.errors?.["required"]) {
+                                        <p>Username is required!</p>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                required
+                                ngModel
+                                #inputEmail="ngModel"
+                                appEmailVal
+                            />
+
+                            @if (inputEmail?.touched) {
+                                <div class="text-danger">
+                                    @if (inputEmail?.errors?.["required"]) {
+                                        <p>Email is required!</p>
+                                    }
+                                    @if (
+                                        inputEmail?.errors?.["emailValidator"]
+                                    ) {
+                                        <p>Please enter a valid email!</p>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                class="form-control"
+                                placeholder="Enter your password"
+                                required
+                                ngModel
+                                #inputPassword="ngModel"
+                                minlength="6"
+                            />
+
+                            @if (inputPassword?.touched) {
+                                <div class="text-danger">
+                                    @if (inputPassword?.errors?.["required"]) {
+                                        <p>Password is required!</p>
+                                    }
+                                    @if (inputPassword?.errors?.["minlength"]) {
+                                        <p>
+                                            Password must be at least 6
+                                            characters long!
+                                        </p>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label"
+                                >Confirm Password</label
+                            >
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                id="confirmPassword"
+                                class="form-control"
+                                placeholder="Confirm your password"
+                                required
+                                ngModel
+                                #inputConfirmPassword="ngModel"
+                                [appPasswords]="inputPassword.value"
+                            />
+
+                            @if (inputConfirmPassword?.touched) {
+                                <div class="text-danger">
+                                    @if (
+                                        inputConfirmPassword?.errors?.[
+                                            "required"
+                                        ]
+                                    ) {
+                                        <p>Please confirm your password!</p>
+                                    } @else if (
+                                        inputConfirmPassword?.errors?.[
+                                            "matchPasswordsValidator"
+                                        ]
+                                    ) {
+                                        <p>The passwords don't match!</p>
+                                    }
+                                </div>
+                            }
+                        </div>
+
+                        <div class="d-grid">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                [disabled]="form.invalid"
+                            >
+                                Register
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p>
+                        Already have an account?
+                        <a routerLink="/login" class="text-primary">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

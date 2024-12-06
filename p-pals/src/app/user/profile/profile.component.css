@@ -1,0 +1,13 @@
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* overflow: hidden; */
+    object-fit: cover;
+    border: 3px solid #f6640c;
+}
+
+.bio-box {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}

@@ -1,0 +1,106 @@
+<div class="container mt-5">
+    <h2>Create a New Post</h2>
+    <form
+        #form="ngForm"
+        (ngSubmit)="addPost(form)"
+        class="needs-validation"
+        novalidate
+    >
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+                type="text"
+                id="title"
+                name="postTitle"
+                class="form-control"
+                required
+                ngModel
+                #inputTitle="ngModel"
+                minlength="5"
+            />
+
+            @if (inputTitle?.touched) {
+                <div class="text-danger">
+                    @if (inputTitle?.errors?.["required"]) {
+                        <p>Title is required!</p>
+                    }
+
+                    @if (inputTitle?.errors?.["minlength"]) {
+                        <p>Title must be at least 5 characters long.</p>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+                id="description"
+                name="postText"
+                class="form-control"
+                rows="4"
+                required
+                ngModel
+                #inputPostText="ngModel"
+                minlength="10"
+            ></textarea>
+
+            @if (inputPostText?.touched) {
+                <div class="text-danger">
+                    @if (inputPostText?.errors?.["required"]) {
+                        <p>Description is required!</p>
+                    }
+
+                    @if (inputPostText?.errors?.["minlength"]) {
+                        <p>Post must be at least 10 characters long.</p>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- TODO -->
+        <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image URL</label>
+            <input
+                type="url"
+                id="imageUrl"
+                name="postImgUrl"
+                class="form-control"
+                ngModel
+                #inputImgUrl="ngModel"
+                required
+                placeholder="Paste the image URL here"
+                imgURLVal
+            />
+
+            @if (inputImgUrl?.touched) {
+                <div class="text-danger">
+                    @if (inputImgUrl?.errors?.["required"]) {
+                        <p>Please upload an image.</p>
+                    }
+                    @if (inputImgUrl?.errors?.["imgURLValidator"]) {
+                        <p>Image URL is not valid!</p>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="d-flex gap-4">
+            <button
+                type="button"
+                class="btn btn-secondary enlarge-on-hover"
+                (click)="onCancel(form)"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="submit"
+                class="btn btn-primary enlarge-on-hover"
+                [disabled]="form.invalid"
+            >
+                Create Post
+            </button>
+        </div>
+    </form>
+</div>
