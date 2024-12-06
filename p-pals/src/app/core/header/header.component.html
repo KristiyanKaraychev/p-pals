@@ -1,0 +1,87 @@
+<header class="bg-success text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <a class="enlarge-on-hover" routerLink="/home">
+                <h1 class="h1 mb-0 logo">P-Pals 🐾</h1>
+            </a>
+        </div>
+
+        <div>
+            <ul class="nav">
+                @if (isLoggedIn) {
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-light btn-sm me-2 enlarge-on-hover"
+                            routerLink="/profile"
+                            >{{ username }}'s Profile</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <button
+                            class="btn btn-danger btn-sm enlarge-on-hover"
+                            (click)="logout()"
+                        >
+                            Logout
+                        </button>
+                    </li>
+                } @else {
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-light btn-sm me-2 enlarge-on-hover"
+                            routerLink="/login"
+                            >Login</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-primary btn-sm enlarge-on-hover"
+                            routerLink="/register"
+                            >Register</a
+                        >
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <nav class="bg-success py-2 nav-buttons">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                @if (!isLoggedIn) {
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-light mx-1 enlarge-on-hover"
+                            routerLink="/home"
+                            >Home</a
+                        >
+                    </li>
+                }
+                <li class="nav-item">
+                    <a
+                        class="btn btn-light mx-1 enlarge-on-hover"
+                        routerLink="/posts"
+                        >All Posts</a
+                    >
+                </li>
+
+                @if (isLoggedIn) {
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-light mx-1 enlarge-on-hover"
+                            routerLink="/my-posts"
+                            >My Posts</a
+                        >
+                    </li>
+                }
+
+                <li class="nav-item">
+                    <a
+                        class="btn btn-light mx-1 enlarge-on-hover"
+                        routerLink="/add-post"
+                        >New Post</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

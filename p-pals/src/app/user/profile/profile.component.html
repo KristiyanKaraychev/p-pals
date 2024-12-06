@@ -1,0 +1,224 @@
+@if (isEditMode) {
+    <div class="container py-5">
+        <h2 class="mb-4 text-center">Edit Profile</h2>
+        <form
+            #form="ngForm"
+            (ngSubmit)="saveProfile(form)"
+            class="needs-validation"
+            novalidate
+        >
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="username" class="form-label">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="form-control"
+                        ngModel
+                        #inputUsername="ngModel"
+                        placeholder="Enter new username"
+                        maxlength="50"
+                    />
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        ngModel
+                        #inputEmail="ngModel"
+                        placeholder="Enter new email"
+                        appEmailVal
+                    />
+
+                    @if (inputEmail?.touched) {
+                        <div class="text-danger">
+                            @if (inputEmail?.errors?.["emailValidator"]) {
+                                <span>Please enter a valid email!</span>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="tel" class="form-label">Telephone Number</label>
+                    <input
+                        type="tel"
+                        id="tel"
+                        name="tel"
+                        class="form-control"
+                        ngModel
+                        #inputTel="ngModel"
+                        placeholder="Enter new phone number"
+                        appTelVal
+                    />
+
+                    @if (inputTel?.touched) {
+                        <div class="text-danger">
+                            @if (
+                                inputTel?.errors?.["telephoneNumberValidator"]
+                            ) {
+                                <span
+                                    >Please enter a valid telephone
+                                    number!</span
+                                >
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="col-md-6">
+                    <label for="location" class="form-label">Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        class="form-control"
+                        ngModel
+                        #inputLocation="ngModel"
+                        placeholder="Enter new location"
+                        maxlength="50"
+                    />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="avatarImgURL" class="form-label"
+                    >Profile Picture</label
+                >
+                <input
+                    type="url"
+                    id="avatarImgURL"
+                    name="avatarImgURL"
+                    class="form-control"
+                    ngModel
+                    #inputImgUrl="ngModel"
+                    placeholder="Paste the image URL here"
+                    imgURLVal
+                />
+
+                @if (inputImgUrl?.touched) {
+                    <div class="text-danger">
+                        @if (inputImgUrl?.errors?.["imgURLValidator"]) {
+                            <p>Image URL is not valid!</p>
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Bio</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="4"
+                    class="form-control"
+                    ngModel
+                    #inputDescription="ngModel"
+                    placeholder="Tell something about yourself"
+                    maxlength="400"
+                ></textarea>
+            </div>
+
+            <div class="text-end">
+                <button
+                    type="button"
+                    class="btn btn-secondary me-2"
+                    (click)="onCancel($event)"
+                >
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+} @else {
+    <div class="container py-5">
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-3 text-center">
+                <img
+                    [src]="
+                        profileDetails.avatarImgURL ||
+                        'images/default-profile-image.jpg'
+                    "
+                    alt="User Profile Picture"
+                    class="rounded-circle img-fluid"
+                />
+            </div>
+            <div class="col-md-9">
+                <h2 class="fw-bold">{{ profileDetails.username }}</h2>
+                <p class="text-muted">
+                    Member since:
+                    <time> {{ profileDetails.created_at | date }}</time>
+                </p>
+                <p class="lead bio-box">
+                    {{ profileDetails.description || "No bio yet." }}
+                </p>
+                <button
+                    class="btn btn-primary me-2 enlarge-on-hover"
+                    (click)="toggleEditMode()"
+                >
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h4 class="fw-bold">Profile Details</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Email:</strong> {{ profileDetails.email }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Telephone Number:</strong>
+                        {{ profileDetails.tel || "No information provided." }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Location:</strong>
+                        {{
+                            profileDetails.location ||
+                                "No information provided."
+                        }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-bold">Statistics</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Total Posts: </strong>
+                        {{ numPosts }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Total Comments: </strong
+                        >{{ profileDetails.posts?.length || 0 }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Total Likes Received: </strong> {{ numLikes }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- <hr /> -->
+
+        <!-- <div>
+            <h4 class="fw-bold mb-3">Recent Posts</h4>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <h5 class="mb-1">My New Labrador Puppy!</h5>
+                    <p class="mb-1">Check out</p></a
+                >
+            </div>
+        </div> -->
+    </div>
+}
