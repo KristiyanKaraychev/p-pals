@@ -1,7 +1,11 @@
 <div class="container py-4">
-    <h2 class="text-center mb-4">My Posts</h2>
+    <h2 class="text-center mb-4 color-orange outline-gray">My Posts</h2>
 
     <div class="row g-4">
+        @if (this.posts.length === 0) {
+            <h2 class="text-muted fw-bold text-center">No Posts Yet!</h2>
+        }
+
         @for (post of posts; track $index) {
             <div class="col-6 col-md-4 col-lg-3">
                 <a [routerLink]="[post._id]" class="text-decoration-none">

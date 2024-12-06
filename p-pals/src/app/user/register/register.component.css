@@ -2,6 +2,10 @@ h2 {
     margin: 0;
 }
 
+.container {
+    margin-top: 10vh;
+}
+
 .card-footer p {
     margin: 0;
 }

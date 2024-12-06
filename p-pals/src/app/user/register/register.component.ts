@@ -32,7 +32,6 @@ export class RegisterComponent {
 
         this.errorMsgService.apiError$.subscribe((error: any) => {
             this.errorMsg.set(error?.error.message);
-            debugger;
             if (this.errorMsg()?.length) {
                 this.hasError = true;
             }

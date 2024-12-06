@@ -1,5 +1,5 @@
 <div class="container py-4">
-    <h2 class="text-center mb-4">Animal Posts</h2>
+    <h2 class="text-center mb-4 color-orange outline-gray">Animal Posts</h2>
 
     <div class="row g-4">
         @for (post of posts; track $index) {
@@ -14,8 +14,12 @@
                             class="card-img-top"
                         />
                         <div class="card-body text-center p-2">
-                            <p class="card-text fw-bold text-primary">
-                                {{ post.themeName | ellipsis: 25 }}
+                            <p
+                                class="card-text fw-bold text-primary post-label"
+                            >
+                                <strong>
+                                    {{ post.themeName | ellipsis: 25 }}</strong
+                                >
                             </p>
                         </div>
                     </div>

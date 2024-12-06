@@ -6,11 +6,13 @@
     </p>
 }
 
-<div class="container mt-5">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 col-sm-10">
             <div class="card">
-                <div class="card-header bg-primary text-white text-center">
+                <div
+                    class="card-header bg-primary text-white text-center bg-blue"
+                >
                     <h2>Login</h2>
                 </div>
                 <div class="card-body">
@@ -77,7 +79,7 @@
                         <div class="d-grid">
                             <button
                                 type="submit"
-                                class="btn btn-primary"
+                                class="btn btn-primary bg-blue"
                                 [disabled]="form.invalid"
                             >
                                 Login
@@ -88,7 +90,9 @@
                 <div class="card-footer text-center">
                     <p>
                         Don't have an account?
-                        <a routerLink="/register" class="text-primary"
+                        <a
+                            routerLink="/register"
+                            class="text-primary color-orange bold"
                             >Register</a
                         >
                     </p>

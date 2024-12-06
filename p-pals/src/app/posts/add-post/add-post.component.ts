@@ -27,7 +27,7 @@ export class AddPostComponent {
         // const postImgFormatted = postImg.split('\\').at(-1);
         // console.log(postImgFormatted);
 
-        debugger;
+        // debugger;
 
         this.apiService
             .createPost(postTitle, postText, postImgUrl)

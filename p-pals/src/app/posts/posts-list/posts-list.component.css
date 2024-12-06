@@ -15,3 +15,12 @@
     height: 200px;
     width: 100%;
 }
+
+.post-label {
+    color: black !important;
+}
+
+h2 {
+    font-size: 4em;
+    font-weight: bold;
+}

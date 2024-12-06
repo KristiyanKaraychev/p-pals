@@ -1,41 +1,46 @@
-<div class="d-flex align-items-center justify-content-center h-100">
-    <div class="container text-center py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 mb-3">Welcome to P-Pals!</h1>
-                <p class="lead text-muted mb-4">
-                    Discover, share, and connect with fellow pet lovers around
-                    the world.
-                </p>
-                <img
-                    src="assets/welcome-banner.jpg"
-                    alt="Welcome Banner"
-                    class="img-fluid rounded shadow-sm mb-4"
-                />
-                <div class="d-flex justify-content-center gap-3">
-                    @if (!isLoggedIn) {
-                        <a
-                            routerLink="/login"
-                            class="btn btn-outline-secondary btn-lg px-4 py-2 rounded-pill hover-scale enlarge-on-hover"
-                        >
-                            Login
-                        </a>
-                        <a
-                            routerLink="/register"
-                            class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale enlarge-on-hover"
-                        >
-                            Register
-                        </a>
-                    } @else {
-                        <a
-                            routerLink="/posts"
-                            class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale"
-                        >
-                            Get Started
-                        </a>
-                    }
+<div class="wrapper">
+    <div
+        class="d-flex align-items-end justify-content-center h-100 main-container"
+    >
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3 color-orange outline-gray">
+                        Welcome to P-Pals!
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Discover, share, and connect with fellow pet lovers
+                        around the world.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        @if (!isLoggedIn) {
+                            <a
+                                routerLink="/login"
+                                class="btn btn-outline-secondary btn-lg px-4 py-2 rounded-pill hover-scale enlarge-on-hover"
+                            >
+                                Login
+                            </a>
+                            <a
+                                routerLink="/register"
+                                class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale enlarge-on-hover bg-orange"
+                            >
+                                <span class="btn-text">Register</span>
+                            </a>
+                        } @else {
+                            <a
+                                routerLink="/posts"
+                                class="btn btn-primary btn-lg px-4 py-2 rounded-pill hover-scale bg-orange y"
+                            >
+                                Get Started
+                            </a>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="img-wrapper">
+        <img src="/images/home-page-banner.jpg" alt="" class="background-img" />
     </div>
 </div>

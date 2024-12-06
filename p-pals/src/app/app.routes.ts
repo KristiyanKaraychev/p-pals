@@ -12,6 +12,7 @@ import { inject } from '@angular/core';
 import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { MyPostsComponent } from './posts/my-posts/my-posts.component';
+import { canActivate } from '@angular/fire/auth-guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,6 +42,7 @@ export const routes: Routes = [
         component: AddPostComponent,
         canActivate: [AuthenticationGuard],
     },
+
     {
         path: 'my-posts',
         children: [

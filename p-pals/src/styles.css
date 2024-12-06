@@ -45,3 +45,47 @@ img {
 .enlarge-on-hover:hover {
     transform: scale(1.15);
 }
+
+.color-blue {
+    color: #4eb0ff !important;
+}
+
+.bg-blue {
+    background-color: #4eb0ff !important;
+}
+
+.bg-blue-faded {
+    background-color: #8bcbff !important;
+}
+
+.color-white {
+    color: #f7f7f7 !important;
+}
+
+.btn-white {
+    background-color: #f7f7f7 !important;
+}
+
+.color-orange {
+    color: #ff8929 !important;
+}
+
+.bg-orange {
+    background-color: #ff8929 !important;
+}
+
+.bg-orange:hover {
+    background-color: #ea6900 !important;
+}
+
+.outline-gray {
+    text-shadow:
+        1px 1px 0 rgb(48, 47, 47),
+        -1px -1px 0 rgb(48, 47, 47),
+        1px -1px 0 rgb(48, 47, 47),
+        -1px 1px 0 rgb(48, 47, 47);
+}
+
+.bold {
+    font-weight: bold;
+}
