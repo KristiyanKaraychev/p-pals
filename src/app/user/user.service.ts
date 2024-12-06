@@ -23,12 +23,14 @@ export class UserService implements OnDestroy {
     }
 
     constructor(private http: HttpClient) {
-        // try {
-        //     const localStorageUser = localStorage.getItem(this.userKey) || '';
-        //     this.user = JSON.parse(localStorageUser);
-        // } catch (error) {
-        //     this.user = null;
-        // }
+        try {
+            const localStorageUser = localStorage.getItem(this.userKey) || '';
+            this.user = JSON.parse(localStorageUser);
+            this.user$$.next(this.user);
+        } catch (error) {
+            this.user = null;
+        }
+
         this.userSubscription = this.user$.subscribe((user) => {
             this.user = user;
         });
@@ -47,9 +49,12 @@ export class UserService implements OnDestroy {
                 password,
                 rePassword,
             })
-            .pipe(tap((user) => this.user$$.next(user)));
-
-        // localStorage.setItem(this.userKey, JSON.stringify(this.user));
+            .pipe(
+                tap((user) => {
+                    this.user$$.next(user);
+                    localStorage.setItem(this.userKey, JSON.stringify(user));
+                }),
+            );
     }
 
     login(email: string, password: string) {
@@ -58,23 +63,29 @@ export class UserService implements OnDestroy {
                 email,
                 password,
             })
-            .pipe(tap((user) => this.user$$.next(user)));
-
-        // localStorage.setItem(this.userKey, JSON.stringify(this.user));
+            .pipe(
+                tap((user) => {
+                    this.user$$.next(user);
+                    localStorage.setItem(this.userKey, JSON.stringify(user));
+                }),
+            );
     }
 
     logout() {
-        // this.user = null;
-        // localStorage.removeItem(this.userKey);
-        return this.http
-            .post('/api/logout', {})
-            .pipe(tap(() => this.user$$.next(null)));
+        return this.http.post('/api/logout', {}).pipe(
+            tap(() => {
+                this.user$$.next(null);
+                localStorage.removeItem(this.userKey);
+            }),
+        );
     }
 
     getProfile() {
-        return this.http
-            .get<AuthenticationUser>('/api/users/profile')
-            .pipe(tap((user) => this.user$$.next(user)));
+        return this.http.get<AuthenticationUser>('/api/users/profile').pipe(
+            tap((user) => {
+                this.user$$.next(user);
+            }),
+        );
     }
 
     saveProfile(
