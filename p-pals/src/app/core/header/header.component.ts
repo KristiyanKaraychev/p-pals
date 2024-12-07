@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
 
@@ -10,6 +10,8 @@ import { UserService } from '../../user/user.service';
     styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+    menuOpen = false;
+
     get isLoggedIn(): boolean {
         return this.userService.isLoggedIn;
     }
@@ -27,5 +29,13 @@ export class HeaderComponent {
         this.userService.logout().subscribe(() => {
             this.router.navigate(['/login']);
         });
+    }
+
+    toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+    }
+
+    closeMenu() {
+        this.menuOpen = false;
     }
 }

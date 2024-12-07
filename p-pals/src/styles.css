@@ -54,10 +54,6 @@ img {
     background-color: #4eb0ff !important;
 }
 
-.bg-orange-light {
-    background-color: #f0a96f !important;
-}
-
 .bg-blue-faded {
     background-color: #8bcbff !important;
 }
@@ -85,6 +81,10 @@ img {
 
 .bg-orange:hover {
     background-color: #ea6900 !important;
+}
+
+.bg-orange-light {
+    background-color: #f0a96f !important;
 }
 
 .outline-gray {

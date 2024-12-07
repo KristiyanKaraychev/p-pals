@@ -3,10 +3,10 @@
         <div class="d-flex align-items-center">
             <a class="enlarge-on-hover" routerLink="/home">
                 <h1 class="h1 mb-0 logo">
-                    <span class="outline-gray"
-                        >P<span class="color-orange">-</span>Pals
-                        <i class="fa-solid fa-paw color-orange"></i
-                    ></span>
+                    <span class="outline-gray">
+                        P<span class="color-orange">-</span>Pals
+                        <i class="fa-solid fa-paw color-orange"></i>
+                    </span>
                 </h1>
             </a>
         </div>
@@ -18,8 +18,9 @@
                         <a
                             class="btn btn-light btn-sm me-2 enlarge-on-hover btn-white"
                             routerLink="/profile"
-                            >{{ username }}'s Profile</a
                         >
+                            {{ username }}'s Profile
+                        </a>
                     </li>
                     <li class="nav-item">
                         <button
@@ -34,22 +35,75 @@
                         <a
                             class="btn btn-light btn-sm me-2 enlarge-on-hover btn-white"
                             routerLink="/login"
-                            >Login</a
                         >
+                            Login
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a
                             class="btn btn-primary btn-sm enlarge-on-hover bg-orange out"
                             routerLink="/register"
-                            >Register</a
                         >
+                            Register
+                        </a>
                     </li>
                 }
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    (click)="toggleMenu()"
+                    id="menuButton"
+                >
+                    <i
+                        class="fas"
+                        [class.fa-bars]="!menuOpen"
+                        [class.fa-times]="menuOpen"
+                    ></i>
+                </button>
+
+                <div class="menu-overlay" [class.active]="menuOpen">
+                    <ul class="menu-items">
+                        @if (!isLoggedIn) {
+                            <li class="nav-item">
+                                <a routerLink="/home" (click)="closeMenu()"
+                                    >Home</a
+                                >
+                            </li>
+                            <hr />
+                        }
+                        <li class="nav-item">
+                            <a routerLink="/posts" (click)="closeMenu()"
+                                >All Posts</a
+                            >
+                        </li>
+
+                        <hr />
+
+                        @if (isLoggedIn) {
+                            <li class="nav-item">
+                                <a routerLink="/my-posts" (click)="closeMenu()"
+                                    >My Posts</a
+                                >
+                            </li>
+
+                            <hr />
+                        }
+
+                        <li class="nav-item">
+                            <a routerLink="/add-post" (click)="closeMenu()"
+                                >New Post</a
+                            >
+                        </li>
+
+                        <hr />
+                    </ul>
+                </div>
             </ul>
         </div>
     </div>
 
-    <nav class="bg-success py-2 nav-buttons bg-blue">
+    <nav class="bg-success py-2 nav-buttons bg-blue d-none d-md-flex">
         <div class="container">
             <ul class="nav justify-content-center">
                 @if (!isLoggedIn) {

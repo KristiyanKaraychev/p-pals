@@ -16,3 +16,22 @@ img {
     font-size: 4em;
     font-weight: bold;
 }
+
+@media screen and (max-width: 767px) {
+    .profile-intro {
+        margin-top: 0px;
+        text-align: center;
+    }
+
+    .container {
+        padding: 48px 24px;
+    }
+
+    .row {
+        gap: 20px;
+    }
+
+    .edit-title {
+        font-size: 3rem;
+    }
+}
