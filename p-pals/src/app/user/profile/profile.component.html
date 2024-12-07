@@ -1,6 +1,8 @@
 @if (isEditMode) {
     <div class="container py-5">
-        <h2 class="mb-4 text-center">Edit Profile</h2>
+        <h2 class="mb-4 text-center edit-title color-orange outline-gray">
+            Edit Profile
+        </h2>
         <form
             #form="ngForm"
             (ngSubmit)="saveProfile(form)"
@@ -124,7 +126,7 @@
                 ></textarea>
             </div>
 
-            <div class="text-end">
+            <div>
                 <button
                     type="button"
                     class="btn btn-secondary me-2"
@@ -132,7 +134,7 @@
                 >
                     Cancel
                 </button>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary bg-blue">
                     Save Changes
                 </button>
             </div>
@@ -161,7 +163,7 @@
                     {{ profileDetails.description || "No bio yet." }}
                 </p>
                 <button
-                    class="btn btn-primary me-2 enlarge-on-hover"
+                    class="btn btn-primary me-2 enlarge-on-hover bg-blue"
                     (click)="toggleEditMode()"
                 >
                     Edit Profile

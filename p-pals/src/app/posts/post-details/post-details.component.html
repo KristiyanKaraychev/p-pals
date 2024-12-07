@@ -1,9 +1,13 @@
-<div class="container py-4">
+<div class="container py-5">
     <div class="theme-content">
-        <div class="theme-title bg-success text-white rounded p-3 mb-4">
-            <div class="d-flex justify-content-between align-items-center">
+        <div
+            class="theme-title bg-success text-white rounded p-4 mb-4 bg-orange-light"
+        >
+            <div
+                class="d-flex justify-content-between align-items-center gap-4"
+            >
                 <div class="flex-grow-1 title-container">
-                    <h2 class="mb-1">{{ post.themeName }}</h2>
+                    <h2 class="mb-1 outline-gray">{{ post.themeName }}</h2>
                     <p class="mb-0">
                         Posted on: <time>{{ post.created_at | date }}</time>
                     </p>
@@ -107,7 +111,7 @@
                                     </button>
                                     <button
                                         type="submit"
-                                        class="btn btn-primary"
+                                        class="btn btn-primary bg-blue"
                                         [disabled]="form.invalid"
                                     >
                                         Update
@@ -141,7 +145,7 @@
                                 }}</time>
                             </p>
                         </div>
-                        <div class="card-body d-flex">
+                        <div class="card-body d-flex justify-content-between">
                             <div class="user-details me-3">
                                 <img
                                     [src]="
@@ -160,11 +164,9 @@
                         </div>
 
                         @if (isEditMode) {
-                            <div
-                                class="card-footer text-muted d-flex justify-content-between align-items-center"
-                            >
-                                <div class="text-end d-flex gap-2">
-                                    <div class="d-flex align-items-center">
+                            <div class="card-footer text-muted">
+                                <div class="text-end">
+                                    <div class="">
                                         {{ post.likes.length || 0 }}
                                         @if (post.likes.length == 1) {
                                             like
@@ -269,7 +271,7 @@
 
                     <button
                         type="submit"
-                        class="btn btn-primary"
+                        class="btn btn-primary bg-blue"
                         [disabled]="form.invalid"
                     >
                         Post

@@ -54,6 +54,10 @@ img {
     background-color: #4eb0ff !important;
 }
 
+.bg-orange-light {
+    background-color: #f0a96f !important;
+}
+
 .bg-blue-faded {
     background-color: #8bcbff !important;
 }
@@ -67,11 +71,16 @@ img {
 }
 
 .color-orange {
-    color: #ff8929 !important;
+    color: #eb8b3d !important;
 }
 
+/* eb8b3d */
+/* da8d4e */
+
+/* ff8929 */
+
 .bg-orange {
-    background-color: #ff8929 !important;
+    background-color: #eb8b3d !important;
 }
 
 .bg-orange:hover {
@@ -88,4 +97,8 @@ img {
 
 .bold {
     font-weight: bold;
+}
+
+.btn-danger {
+    background-color: #de5464 !important;
 }

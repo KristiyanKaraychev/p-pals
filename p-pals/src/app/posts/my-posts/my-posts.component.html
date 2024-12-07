@@ -1,4 +1,4 @@
-<div class="container py-4">
+<div class="container py-5">
     <h2 class="text-center mb-4 color-orange outline-gray">My Posts</h2>
 
     <div class="row g-4">
@@ -16,7 +16,9 @@
                             class="card-img-top"
                         />
                         <div class="card-body text-center p-2">
-                            <p class="card-text fw-bold text-primary">
+                            <p
+                                class="card-text fw-bold text-primary post-label"
+                            >
                                 {{ post.themeName | ellipsis: 25 }}
                             </p>
                         </div>
