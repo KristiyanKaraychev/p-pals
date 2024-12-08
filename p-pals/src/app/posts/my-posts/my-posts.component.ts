@@ -34,6 +34,7 @@ export class MyPostsComponent implements OnInit {
             )
             .subscribe((filteredPosts) => {
                 console.log(filteredPosts);
+
                 this.posts = filteredPosts;
             });
     }

@@ -46,19 +46,4 @@ export class ApiService {
     likeComment(postId: string) {
         return this.http.put<Comment>(`/api/likes/${postId}`, {});
     }
-
-    // // CRUD operations
-    // // update -> http.put
-    // updateTheme(themeId: string, themeName: string, postText: string) {
-    //     const body = { themeName, postText };
-    //     return this.http.put<Post>(`/api/themes/${themeId}`, body);
-    // }
-
-    // updatePost(themeId: string, postId: string) {
-    //     const body = {};
-    //     return this.http.put<Post>(
-    //         `/api/themes/${themeId}/posts/${postId}`,
-    //         body,
-    //     );
-    // }
 }

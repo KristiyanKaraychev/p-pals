@@ -1,0 +1,46 @@
+dogs:
+	https://i.ytimg.com/vi/IHIbg3zHJ20/maxresdefault.jpg
+	https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg
+	https://upload.wikimedia.org/wikipedia/commons/3/3b/BlkStdSchnauzer2.jpg
+	https://upload.wikimedia.org/wikipedia/commons/5/57/Dogs_mating_2.jpg
+	https://upload.wikimedia.org/wikipedia/commons/a/af/Golden_retriever_eating_pigs_foot.jpg
+	https://upload.wikimedia.org/wikipedia/commons/9/9c/Siberian_Husky_pho.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Walking_the_dog_%281945527533%29.jpg/1024px-Walking_the_dog_%281945527533%29.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Chin_posing.jpg/1280px-Chin_posing.jpg
+	https://upload.wikimedia.org/wikipedia/commons/d/d5/Retriever_in_water.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Black_Labrador_Retriever_-_Male_IMG_3323.jpg/1920px-Black_Labrador_Retriever_-_Male_IMG_3323.jpg
+	
+cats:
+	https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/TapetumLucidum.JPG/1920px-TapetumLucidum.JPG
+	https://upload.wikimedia.org/wikipedia/commons/b/bb/Kittyply_edit1.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Black_and_gray_mackerel_tabby_cat_at_night_in_Tuntorp_7.jpg/1280px-Black_and_gray_mackerel_tabby_cat_at_night_in_Tuntorp_7.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Domestic_Cat_Face_Shot.jpg/1920px-Domestic_Cat_Face_Shot.jpg
+	https://upload.wikimedia.org/wikipedia/commons/3/3b/Gato_enervado_pola_presencia_dun_can.jpg
+	https://upload.wikimedia.org/wikipedia/commons/b/b5/1dayoldkitten.JPG
+	https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Siamese_cat_of_Altai_shepherds.jpg/1920px-Siamese_cat_of_Altai_shepherds.jpg
+	https://upload.wikimedia.org/wikipedia/commons/4/45/Mainecoon-lap.jpg
+	https://upload.wikimedia.org/wikipedia/commons/d/dd/Man_holding_Calico_cat.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Black_Cat_%287983739954%29.jpg/1920px-Black_Cat_%287983739954%29.jpg
+	
+birds:
+	https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Congo_African_Grey_pet_on_a_perch.JPG/1024px-Congo_African_Grey_pet_on_a_perch.JPG
+	https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Black-headed_Caique_%28Pionites_melanocephalus%29_-cage_bars.jpg/1920px-Black-headed_Caique_%28Pionites_melanocephalus%29_-cage_bars.jpg
+	https://upload.wikimedia.org/wikipedia/commons/3/31/Juvenile_White-bellied_Caique_-_pet_in_a_harness.JPG
+	https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Scarlet_Macaw_%28Ara_macao%29_-chewing_wood.jpg/1920px-Scarlet_Macaw_%28Ara_macao%29_-chewing_wood.jpg
+	https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Parrot_Cockatiel_lutino.4months.jpg/800px-Parrot_Cockatiel_lutino.4months.jpg
+
+fish:
+	https://en.wikipedia.org/wiki/Fishkeeping#/media/File:Neonka_obecna_paracheirodon_innesi.jpg
+	https://en.wikipedia.org/wiki/List_of_freshwater_aquarium_fish_species#/media/File:Corydoras_aeneus_2.jpg
+	https://en.wikipedia.org/wiki/Common_goldfish#/media/File:%E3%83%AF%E3%82%AD%E3%83%B320120701.JPG
+	https://en.wikipedia.org/wiki/Common_goldfish#/media/File:Goldfishes.jpg
+	https://en.wikipedia.org/wiki/Siamese_fighting_fish#/media/File:HM_Orange_M_Sarawut.jpg
+	
+profile-pictures:
+	https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/312641666/original/c47c1d2eaea3f7f9f64b14eb0a7435da9e918a21/draw-cartoon-animal-profile-picture-for-you.jpg
+	https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/312641666/original/53e0b8278409977b032df5a9f6ee0d0eae9e8ad9/draw-cartoon-animal-profile-picture-for-you.jpg
+	https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/f8a730b975a123ebc775418b565bd104-1716208697/Bricknetminecra-1/draw-cartoon-animal-profile-picture-for-you.png
+	https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/615d5efeaf208d49ead1bac5600b56ff-1687020688/Amy_Cakes/draw-cartoon-animal-profile-picture-for-you.png
+	https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/227e410111726b004a1d4dc71061dfc8-1686384465/Raccoon/draw-cartoon-animal-profile-picture-for-you.png
+	https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/e25619f03e8298ddd56efd62abfe78ab-1685358714/Diablo_Dingo-1/draw-cartoon-animal-profile-picture-for-you.png
+	

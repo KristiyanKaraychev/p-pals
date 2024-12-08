@@ -31,3 +31,10 @@ h2 {
 .success-message {
     background-color: rgba(99, 230, 81, 0.699);
 }
+
+@media screen and (max-width: 767px) {
+    .notification {
+        right: 5%;
+        top: 10%;
+    }
+}

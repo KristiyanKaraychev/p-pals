@@ -30,6 +30,7 @@
                                 required
                                 ngModel
                                 #inputUsername="ngModel"
+                                minlength="5"
                                 maxlength="50"
                             />
 
@@ -37,6 +38,12 @@
                                 <div class="text-danger">
                                     @if (inputUsername?.errors?.["required"]) {
                                         <p>Username is required!</p>
+                                    }
+                                    @if (inputUsername?.errors?.["minlength"]) {
+                                        <p>
+                                            Username must be at least 5
+                                            characters long!
+                                        </p>
                                     }
                                 </div>
                             }
