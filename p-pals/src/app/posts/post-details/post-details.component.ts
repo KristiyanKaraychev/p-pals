@@ -45,7 +45,7 @@ export class PostDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         const id = this.route.snapshot.params['postId'];
-        console.log('Post ID: ' + id);
+        // console.log('Post ID: ' + id);
         this.api.getSinglePost(id).subscribe((post) => {
             this.post = post;
             this.numOfComments = this.post.posts.length;
@@ -58,7 +58,7 @@ export class PostDetailsComponent implements OnInit {
         const { postText } = form.value;
 
         this.api.createComment(postText, this.post._id).subscribe((data) => {
-            console.log(data);
+            // console.log(data);
             form.reset();
             this.ngOnInit();
         });
@@ -69,7 +69,7 @@ export class PostDetailsComponent implements OnInit {
         this.api
             .editComment(this.post._id, commentId, postText)
             .subscribe((data) => {
-                console.log(data);
+                // console.log(data);
                 this.ngOnInit();
             });
     }
@@ -92,7 +92,7 @@ export class PostDetailsComponent implements OnInit {
     }
 
     onCancel() {
-        console.log('Form has been reset.');
+        // console.log('Form has been reset.');
         this.ngOnInit();
     }
 }

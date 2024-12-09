@@ -25,8 +25,8 @@ export class RegisterComponent {
 
     register(form: NgForm) {
         if (form.invalid) {
-            console.log(form.errors);
-            console.log('Invalid login form.');
+            // console.log(form.errors);
+            // console.log('Invalid login form.');
             return;
         }
 

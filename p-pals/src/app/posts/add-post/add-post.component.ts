@@ -27,19 +27,17 @@ export class AddPostComponent {
         // const postImgFormatted = postImg.split('\\').at(-1);
         // console.log(postImgFormatted);
 
-        // debugger;
-
         this.apiService
             .createPost(postTitle, postText, postImgUrl)
             .subscribe((data) => {
-                console.log(data);
+                // console.log(data);
                 this.router.navigate(['/posts']);
             });
     }
 
     onCancel(form: NgForm) {
         form.resetForm();
-        console.log('Form has been reset.');
+        // console.log('Form has been reset.');
         this.router.navigate(['/posts']);
     }
 }

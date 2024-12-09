@@ -55,12 +55,10 @@ export class AppComponent implements OnInit {
     constructor(private apiService: ApiService) {}
 
     ngOnInit() {
-        console.log('test app component');
-
+        // console.log('test app component');
         // this.apiService.getAllPosts().subscribe((x) => {
         //     console.log(x);
         // });
-
         // this.firebaseService.post('posts', { text: 'test1' }).subscribe((x) => {
         //     debugger;
         //     console.log(x);
