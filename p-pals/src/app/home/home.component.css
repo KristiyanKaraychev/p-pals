@@ -42,3 +42,13 @@ h1 {
 .col-lg-8 {
     min-width: 80%;
 }
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .lead {
+        font-size: 2em;
+    }
+}

@@ -37,4 +37,8 @@ h2 {
         right: 5%;
         top: 10%;
     }
+
+    .container {
+        margin-top: 5vh;
+    }
 }

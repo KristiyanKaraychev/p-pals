@@ -59,7 +59,7 @@ header {
 
 @media screen and (max-width: 767px) {
     .h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .btn {
@@ -71,7 +71,7 @@ header {
     }
 
     .container {
-        max-width: 90%;
+        max-width: 100%;
     }
 
     .navbar {
